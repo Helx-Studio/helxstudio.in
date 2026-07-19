@@ -15,7 +15,7 @@ const NavLinks = [
 ];
 const Navbar = () => {
   return (
-    <div className="w-full flex  border-b justify-between  border-neutral-300">
+    <div className="w-full sticky top-0 z-100 bg-white flex  border-b justify-between  border-neutral-300">
       <div className="flex">
         <div className="px-3 border-r border-neutral-300 py-3">
           <svg

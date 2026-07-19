@@ -1,23 +1,15 @@
 "use client";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useEffect, useRef, useState } from "react";
-import { ArrowDown } from "pixelarticons/react";
-// import video from '@/public/'
+import { useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
+import LeftSection from "./LeftSection";
+import RightSection from "./RightSecton";
 const Hero = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
-  const [active, setActive] = useState(0);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
   });
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActive((prev) => (prev + 2) % 3);
-    }, 400);
-
-    return () => clearInterval(interval);
-  }, []);
   const leftWidth = useTransform(scrollYProgress, [0, 1], ["66.666%", "0%"]);
   const rightWidth = useTransform(scrollYProgress, [0, 1], ["33.333%", "100%"]);
   const leftHeadingX = useTransform(scrollYProgress, [0, 0.4], [0, -850]);
@@ -31,7 +23,8 @@ const Hero = () => {
   const line1F = useTransform(scrollYProgress, [0, 0.8], [20, 35]);
   const line2F = useTransform(scrollYProgress, [0, 0.8], [20, 34]);
   const line3F = useTransform(scrollYProgress, [0, 0.8], [20, 34]);
-  const descriptionY = useTransform(scrollYProgress, [0, 1], [35, 0]);
+  const iconDiv = useTransform(scrollYProgress, [0, 1], [140, 230]);
+  const svgMove = useTransform(scrollYProgress, [0, 1], [0, -32]);
   return (
     <section ref={sectionRef} className="relative h-[200vh]">
       <main
@@ -45,96 +38,26 @@ const Hero = () => {
         "
       >
         {/* LEFT */}
-        <motion.div
-          style={{
-            width: leftWidth,
-            y: leftDiv,
-          }}
-          className="
-              h-full
-              flex
-              flex-col
-            "
-        >
-          <div className="flex  h-full   ">
-            {" "}
-            <motion.h1
-              style={{
-                y: leftHeadingX,
-              }}
-              className="text-5xl font-Main px-6  mt-53 font-semibold text-neutral-900"
-            >
-              {" "}
-              Turning Your Ideas <br />
-              Into Websites That Converts.
-            </motion.h1>
-          </div>
-          <div className="w-full h-95 relative bg-gray-600">
-            <div className="w-full inset-0  absolute h-full">
-              {" "}
-              <video src="./motion.mp4" autoPlay className="w-full" />
-            </div>
-          </div>
-        </motion.div>
-
+        <LeftSection
+          leftWidth={leftWidth}
+          leftDiv={leftDiv}
+          leftHeadingX={leftHeadingX}
+        />
         {/* RIGHT */}
-        <motion.div
-          style={{
-            width: rightWidth,
-          }}
-          className="h-full bg-[#fcfcfc]  flex flex-col"
-        >
-          <motion.div
-            style={{ height: leftRight }}
-            className="flex items-center border-l border-b border-neutral-300 justify-center "
-          >
-            <div className="text-xl font-secondary flex flex-col  -space-y-2  font-medium text-neutral-900">
-              <motion.p
-                style={{ x: line1X, fontSize: line1F }}
-                className="whitespace-nowrap"
-              >
-                We design, develop, and launch
-              </motion.p>
 
-              <motion.p
-                style={{ x: line2X, fontSize: line2F }}
-                className="whitespace-nowrap"
-              >
-                high-performance websites crafted
-              </motion.p>
-
-              <motion.p
-                style={{ x: line3X, fontSize: line3F }}
-                className="whitespace-nowrap"
-              >
-                to engage users and accelerate growth.
-              </motion.p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            style={{ height: leftBottom }}
-            id="backgounf"
-            className="px-3 flex flex-col bg-white overflow-hidden "
-          >
-            <div className="flex pt-4 h-full flex-col">
-              {Array.from({ length: 3 }).map((_, index) => (
-                <ArrowDown
-                  key={index}
-                  className={`transition-colors duration-200 ${
-                    active === index ? "text-neutral-700" : "text-neutral-300"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <div className="flex py-4 items-center justify-end">
-              <button className="text-white bg-neutral-900 px-4 py-2 rounded-md">
-                Book a Call
-              </button>
-            </div>
-          </motion.div>
-        </motion.div>
+        <RightSection
+          rightWidth={rightWidth}
+          leftBottom={leftBottom}
+          leftRight={leftRight}
+          line1F={line1F}
+          line1X={line1X}
+          line2F={line2F}
+          line2X={line2X}
+          line3F={line3F}
+          line3X={line3X}
+          iconDiv={iconDiv}
+          svgMove={svgMove}
+        />
       </main>
     </section>
   );

@@ -8,7 +8,7 @@ const BookDemoButton = React.forwardRef<HTMLButtonElement>(() => {
     <motion.button
       initial="initial"
       whileHover="hover"
-      className="bg-neutral-900 hover:bg-neutral-800 shadow-[inset_1px_1px_1px_-8px_#FFF7F7] text-white font-medium h-full flex items-center px-5 overflow-hidden"
+      className="bg-neutral-900 cursor-pointer hover:bg-neutral-800 shadow-[inset_1px_1px_1px_-8px_#FFF7F7] text-white font-medium py-3 flex items-center px-5 overflow-hidden"
     >
       <motion.span
         variants={{

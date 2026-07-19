@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/Advancments/SmoothScrool";
 import localFont from "next/font/local";
@@ -11,6 +11,12 @@ const Mistral = localFont({
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-serif",
 });
 const inter = Inter({
   variable: "--font-secondary",
@@ -33,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${Mistral.variable} ${inter.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${Mistral.variable} ${instrumentSerif.className} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SmoothScroll>{children}</SmoothScroll>
