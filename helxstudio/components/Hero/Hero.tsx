@@ -2,6 +2,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown } from "pixelarticons/react";
+// import video from '@/public/'
 const Hero = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(0);
@@ -20,6 +21,7 @@ const Hero = () => {
   const leftWidth = useTransform(scrollYProgress, [0, 1], ["66.666%", "0%"]);
   const rightWidth = useTransform(scrollYProgress, [0, 1], ["33.333%", "100%"]);
   const leftHeadingX = useTransform(scrollYProgress, [0, 0.4], [0, -850]);
+  const leftDiv = useTransform(scrollYProgress, [0, 1], [0, -250]);
   const leftRight = useTransform(scrollYProgress, [0, 1], ["80%", "100%"]);
   const leftBottom = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
 
@@ -46,10 +48,10 @@ const Hero = () => {
         <motion.div
           style={{
             width: leftWidth,
+            y: leftDiv,
           }}
           className="
               h-full
-              bg-amber-100
               flex
               flex-col
             "
@@ -67,7 +69,12 @@ const Hero = () => {
               Into Websites That Converts.
             </motion.h1>
           </div>
-          <div className="w-full h-95 bg-gray-600">video</div>
+          <div className="w-full h-95 relative bg-gray-600">
+            <div className="w-full inset-0  absolute h-full">
+              {" "}
+              <video src="./motion.mp4" autoPlay className="w-full" />
+            </div>
+          </div>
         </motion.div>
 
         {/* RIGHT */}
@@ -75,11 +82,11 @@ const Hero = () => {
           style={{
             width: rightWidth,
           }}
-          className="h-full bg-blue-100 flex flex-col"
+          className="h-full bg-[#fcfcfc]  flex flex-col"
         >
           <motion.div
             style={{ height: leftRight }}
-            className="flex items-center justify-center"
+            className="flex items-center border-l border-b border-neutral-300 justify-center "
           >
             <div className="text-xl font-secondary flex flex-col  -space-y-2  font-medium text-neutral-900">
               <motion.p
@@ -107,7 +114,8 @@ const Hero = () => {
 
           <motion.div
             style={{ height: leftBottom }}
-            className="px-3 flex flex-col bg-red-100 overflow-hidden"
+            id="backgounf"
+            className="px-3 flex flex-col bg-white overflow-hidden "
           >
             <div className="flex pt-4 h-full flex-col">
               {Array.from({ length: 3 }).map((_, index) => (
