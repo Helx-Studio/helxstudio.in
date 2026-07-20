@@ -38,10 +38,15 @@ const LeftSection = ({
           Wake up launched.
         </motion.h1>
       </div>
-      <div className="w-full h-95 relative bg-gray-600">
+      <div className="w-full h-105 relative bg-gray-600">
         <div className="w-full inset-0  absolute h-full">
           {" "}
-          <video src="./motion.mp4" loop autoPlay className="w-full" />
+          <video
+            src="./motion.mp4"
+            loop
+            autoPlay
+            className="w-full object-cover"
+          />
         </div>
       </div>
     </motion.div>

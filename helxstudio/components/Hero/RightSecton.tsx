@@ -295,7 +295,7 @@ const RightSection = ({
 
         <div className="flex py-14 items-center justify-end">
           <button className="text-white bg-neutral-900 px-4 py-2 rounded-md">
-            Book a Call
+            Our Work
           </button>
         </div>
       </motion.div>
