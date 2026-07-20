@@ -5,7 +5,7 @@ const NavLinks = [
     nav: "Our Work",
   },
   {
-    link: "/work",
+    link: "/whyus",
     nav: "Why Us",
   },
   {
@@ -37,7 +37,7 @@ const Navbar = () => {
             return (
               <div
                 className="px-4 border-r border-neutral-300  py-3"
-                id={link.link}
+                key={link.link}
               >
                 <span className="font-medium">{link.nav}</span>
               </div>

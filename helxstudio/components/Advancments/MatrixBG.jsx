@@ -1,102 +1,88 @@
-import { useEffect, useRef, useState } from "react";
-
-// A loose stack of colored squares that each drift a few px on their
-// own timer. The "robotic" feel comes from the transition curve: a
-// fast snap with a slight overshoot (like a servo settling), rather
-// than a smooth continuous float — so each square looks like it's
-// independently repositioning itself, not swaying.
-
-const BLUES = [
-  "#0b2f7a",
-  "#164fc2",
-  "#2f6fe0",
-  "#4a90e2",
-  "#5aa8f5",
-  "#8ccbff",
-];
-
-// Base layout for one cluster: relative x/y offsets (px) and size (px).
-// Tweak this array to change the arrangement/density of the stack.
-const LAYOUT = [
-  { x: 0, y: 0, size: 78 },
-  { x: 58, y: 34, size: 66 },
-  { x: 8, y: 78, size: 60 },
-  { x: 70, y: 96, size: 52 },
-  { x: -6, y: 148, size: 70 },
-  { x: 54, y: 168, size: 46 },
-];
-
-function useServoOffset({ range = 7, minDelay = 1800, maxDelay = 4200 }) {
-  const [offset, setOffset] = useState({ x: 0, y: 0, r: 0 });
-
-  useEffect(() => {
-    let timeout;
-    const schedule = () => {
-      const delay = minDelay + Math.random() * (maxDelay - minDelay);
-      timeout = setTimeout(() => {
-        setOffset({
-          x: (Math.random() - 0.5) * range * 2,
-          y: (Math.random() - 0.5) * range * 2,
-          r: (Math.random() - 0.5) * 6,
-        });
-        schedule();
-      }, delay);
-    };
-    schedule();
-    return () => clearTimeout(timeout);
-  }, [range, minDelay, maxDelay]);
-
-  return offset;
-}
-
-function Block({ x, y, size, color }) {
-  const offset = useServoOffset({ range: 7 });
+export default function PixelMosaic({ className = "" }) {
   return (
     <div
-      style={{
-        position: "absolute",
-        left: x,
-        top: y,
-        width: size,
-        height: size,
-        background: color,
-        transform: `translate(${offset.x}px, ${offset.y}px) rotate(${offset.r}deg)`,
-        transition: "transform 1s cubic-bezier(0.34, 1.56, 0.64, 1)",
-        willChange: "transform",
-      }}
-    />
-  );
-}
-
-function Cluster({ style }) {
-  return (
-    <div style={{ position: "relative", width: 148, height: 220, ...style }}>
-      {LAYOUT.map((b, i) => (
-        <Block
-          key={i}
-          x={b.x}
-          y={b.y}
-          size={b.size}
-          color={BLUES[i % BLUES.length]}
-        />
-      ))}
-    </div>
-  );
-}
-
-export default function RoboticBlocks() {
-  return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "100%",
-        minHeight: "490px",
-        rotate: -180,
-        overflow: "hidden",
-      }}
+      aria-hidden="true"
+      className={`absolute top-0 right-0 h-[140px] w-[220px] overflow-hidden rotate-180  ${className}`}
     >
-      <Cluster style={{ position: "absolute", right: "-3%", top: "-20%" }} />
+      {/* Top floating pixel */}
+      <div className="absolute left-[54px] top-[17px] h-[18px] w-[18px] bg-[#6c00ff]" />
+      <div className="absolute left-[54px] top-[17px] h-[18px] w-[7px] bg-[#3921c8]" />
+
+      {/* Upper-left cluster */}
+      <div className="absolute left-0 top-[35px] h-[18px] w-[18px] bg-[#8b00ff]" />
+      <div className="absolute left-[18px] top-[35px] h-[18px] w-[18px] bg-[#16005e]" />
+
+      <div className="absolute left-0 top-[53px] h-[18px] w-[18px] bg-[#3d00a8]" />
+      <div className="absolute left-0 top-[71px] h-[18px] w-[18px] bg-[#7100ff]" />
+
+      {/* Middle purple cluster */}
+      <div className="absolute left-[36px] top-[70px] h-[18px] w-[36px] bg-[#5621dc]" />
+      <div className="absolute left-[72px] top-[70px] h-[18px] w-[18px] bg-[#7100ff]" />
+
+      <div className="absolute left-[72px] top-[52px] h-[36px] w-[18px] bg-[#3214a9]" />
+
+      {/* Center-left floating blocks */}
+      <div className="absolute left-[108px] top-[35px] h-[18px] w-[18px] bg-[#2511a7]" />
+
+      <div className="absolute left-[108px] top-[53px] h-[18px] w-[18px] bg-[#c1bdfa]" />
+
+      <div className="absolute left-[108px] top-[70px] h-[18px] w-[18px] bg-[#7b00ff]" />
+
+      {/* left floating pixel */}
+      <div className="absolute left-[162px] top-[70px] h-[18px] w-[18px] bg-[#a978f6]" />
+
+      {/* Main lower-left mosaic */}
+
+      {/* Row 1 */}
+      <div className="absolute left-0 top-[88px] h-[18px] w-[18px] bg-[#130066]" />
+      <div className="absolute left-[18px] top-[88px] h-[18px] w-[18px] bg-[#2c00a0]" />
+      <div className="absolute left-[36px] top-[88px] h-[18px] w-[18px] bg-[#18006c]" />
+      <div className="absolute left-[54px] top-[88px] h-[18px] w-[18px] bg-[#13005b]" />
+      <div className="absolute left-[90px] top-[88px] h-[18px] w-[18px] bg-[#08004d]" />
+
+      {/* Light transparent square */}
+      <div className="absolute left-[126px] top-[88px] h-[18px] w-[18px] bg-[#dda9ff]/40" />
+
+      {/* Row 2 */}
+      <div className="absolute left-0 top-[106px] h-[18px] w-[18px] bg-[#26007c]" />
+      <div className="absolute left-[18px] top-[106px] h-[18px] w-[18px] bg-[#4010bf]" />
+      <div className="absolute left-[36px] top-[106px] h-[18px] w-[18px] bg-[#5b00f1]" />
+      <div className="absolute left-[54px] top-[106px] h-[18px] w-[18px] bg-[#17006a]" />
+
+      {/* White hole */}
+      <div className="absolute left-[72px] top-[106px] h-[18px] w-[18px] bg-white" />
+
+      <div className="absolute left-[90px] top-[106px] h-[18px] w-[18px] bg-[#17005d]" />
+
+      {/* Row 3 */}
+      <div className="absolute left-0 top-[124px] h-[16px] w-[18px] bg-[#11004d]" />
+      <div className="absolute left-[18px] top-[124px] h-[16px] w-[18px] bg-[#260091]" />
+      <div className="absolute left-[36px] top-[124px] h-[16px] w-[18px] bg-[#7300ff]" />
+      <div className="absolute left-[54px] top-[124px] h-[16px] w-[18px] bg-[#2700a0]" />
+
+      {/* Diagonal striped block */}
+      <div
+        className="absolute left-[72px] top-[124px] h-[16px] w-[18px]"
+        style={{
+          background:
+            "repeating-linear-gradient(135deg, #8b2cff 0px, #8b2cff 2px, #d0c8ff 2px, #d0c8ff 4px)",
+        }}
+      />
+
+      <div className="absolute left-[90px] top-[124px] h-[16px] w-[18px] bg-[#c5c2f8]" />
+      <div className="absolute left-[108px] top-[124px] h-[16px] w-[18px] bg-[#10004d]" />
+
+      {/* Bottom-left floating blocks */}
+      <div className="absolute left-[144px] top-[123px] h-[17px] w-[18px] bg-[#a867f4]" />
+
+      {/* left horizontal striped decoration */}
+      <div
+        className="absolute left-0 top-[89px] h-[18px] w-[18px] opacity-50"
+        style={{
+          background:
+            "repeating-linear-gradient(0deg, #e6a5ff 0px, #e6a5ff 1px, transparent 1px, transparent 3px)",
+        }}
+      />
     </div>
   );
 }
