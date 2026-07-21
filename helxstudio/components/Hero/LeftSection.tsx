@@ -34,7 +34,7 @@ const LeftSection = ({
           style={{
             y: leftHeadingX,
           }}
-          className="text-6xl font-Main px-6  mt-53 font-semibold text-neutral-900"
+          className="text-6xl font-Main px-6  mt-46 font-semibold text-neutral-900"
         >
           {" "}
           Tell your Idea. <br />
@@ -44,7 +44,7 @@ const LeftSection = ({
           style={{
             y: leftHeadingX,
           }}
-          className="text-md flex items-center bg-yellow-50 border border-yellow-200 text-yellow-700  justify-center gap-1 font-secondary px-2 py-1 rounded-md ml-8 absolute top-88 font-medium "
+          className="text-md flex items-center bg-yellow-50 border border-yellow-200 text-yellow-700  justify-center gap-1 font-secondary px-2 py-1 rounded-md ml-8 absolute top-80 font-medium "
         >
           {" "}
           <Star fill="#FFDB58" size={18} className="text-amber-400" />
@@ -54,7 +54,7 @@ const LeftSection = ({
           style={{
             y: leftHeadingX,
           }}
-          className="text-md flex items-center bg-green-50 border border-green-200 text-green-700  justify-center gap-1 font-secondary px-2 py-1 rounded-md ml-45 absolute top-88 font-medium "
+          className="text-md flex items-center bg-green-50 border border-green-200 text-green-700  justify-center gap-1 font-secondary px-2 py-1 rounded-md ml-45 absolute top-80 font-medium "
         >
           {" "}
           <Timer size={18} className="text-green-400" />
