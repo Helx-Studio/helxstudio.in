@@ -22,9 +22,11 @@ interface CustomerCarouselProps {
 function CarouselCard({
   slide,
   visibleCount,
+  onCardClick,
 }: {
   slide: CarouselSlide;
   visibleCount: number;
+  onCardClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -49,12 +51,15 @@ function CarouselCard({
   return (
     <a
       href={slide.href}
-      className="group relative shrink-0 px-2"
+      onClick={onCardClick}
+      onDragStart={(e) => e.preventDefault()}
+      draggable={false}
+      className="group relative shrink-0 px-2 select-none"
       style={{ width: `${100 / visibleCount}%` }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative h-[420px] w-full overflow-hidden rounded-2xl bg-neutral-900">
+      <div className="relative h-[420px] w-full overflow-hidden rounded-2xl bg-neutral-900 pointer-events-none">
         {slide.video ? (
           <video
             ref={videoRef}
@@ -69,6 +74,7 @@ function CarouselCard({
           <img
             src={slide.image}
             alt=""
+            draggable={false}
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
@@ -84,6 +90,11 @@ export default function CustomerCarousel({
   const [index, setIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
 
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartXRef = useRef(0);
+  const hasDraggedRef = useRef(false);
+
   const maxIndex = Math.max(0, slides.length - visibleCount);
 
   const goTo = useCallback(
@@ -97,15 +108,79 @@ export default function CustomerCarousel({
   const handlePrev = () => goTo(index - 1);
   const handleNext = () => goTo(index + 1);
 
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    // Support touch types and left click
+    if (e.pointerType !== "touch" && e.button !== 0) return;
+    setIsDragging(true);
+    hasDraggedRef.current = false;
+    dragStartXRef.current = e.clientX;
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    let diffX = e.clientX - dragStartXRef.current;
+
+    // Rubber banding resistance at scroll boundaries
+    if (index === 0 && diffX > 0) {
+      diffX = Math.pow(diffX, 0.85);
+    } else if (index === maxIndex && diffX < 0) {
+      diffX = -Math.pow(-diffX, 0.85);
+    }
+
+    if (Math.abs(diffX) > 10) {
+      hasDraggedRef.current = true;
+    }
+    setDragOffset(diffX);
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    e.currentTarget.releasePointerCapture(e.pointerId);
+
+    const diffX = dragOffset;
+    setDragOffset(0);
+
+    if (hasDraggedRef.current) {
+      const trackWidth = trackRef.current?.clientWidth || 1;
+      const slideWidthInPixels = trackWidth / visibleCount;
+      const indexOffset = Math.round(-diffX / slideWidthInPixels);
+
+      if (indexOffset !== 0) {
+        goTo(index + indexOffset);
+      } else {
+        goTo(index);
+      }
+    }
+  };
+
+  const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (hasDraggedRef.current) {
+      e.preventDefault();
+    }
+  };
+
+  const trackWidth = trackRef.current?.clientWidth || 1;
+  const dragPercent = (dragOffset / trackWidth) * 100;
+  const translatePercent = -index * (100 / visibleCount) + dragPercent;
+
   return (
     <div className="w-full">
-      {/* Track */}
-      <div className="overflow-hidden rounded-2xl">
+      {/* Track Container */}
+      <div
+        className="overflow-hidden rounded-2xl select-none touch-pan-y cursor-grab active:cursor-grabbing"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
+      >
         <div
           ref={trackRef}
-          className="flex transition-transform duration-500 ease-out"
+          className="flex transition-transform ease-out"
           style={{
-            transform: `translateX(-${index * (100 / visibleCount)}%)`,
+            transform: `translateX(${translatePercent}%)`,
+            transitionDuration: isDragging ? "0ms" : "500ms",
           }}
         >
           {slides.map((slide) => (
@@ -113,6 +188,7 @@ export default function CustomerCarousel({
               key={slide.id}
               slide={slide}
               visibleCount={visibleCount}
+              onCardClick={handleCardClick}
             />
           ))}
         </div>
