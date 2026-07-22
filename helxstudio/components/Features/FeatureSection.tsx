@@ -5,10 +5,14 @@ import coin from "@/public/Feature/coin.png";
 import growth from "@/public/Feature/growth.png";
 import Image from "next/image";
 import Performance from "./Performance";
+import { SweepLine } from "./PricingGraph";
+import { TrendingUp } from "lucide-react";
 const FeatureSection = () => {
   return (
-    <div className="h-screen px-8 border-t border-neutral-200 relative">
+    <div className="h-screen px-8 mb-3 border-t border-neutral-200 relative">
       <div className="h-3 w-3 bg-transparent border-neutral-600 absolute top-0 border-t border-l left-0" />
+      <div className="h-3 w-3 bg-transparent border-neutral-600 absolute top-0 border-t border-r right-0" />
+
       <div className="absolute uppercase font-mono w-fit bg-white -top-3 px-2  left-12">
         <p>BENEFITS</p>
       </div>
@@ -99,7 +103,13 @@ const FeatureSection = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="lg:col-span-2 border border-neutral-200 p-5">
+          <div className="lg:col-span-2 rounded-lg border border-neutral-200 p-5">
+            <div className="h-50 relative  flex items-center bg-[linear-gradient(to_right,#5cff5d20_1px,transparent_1px),linear-gradient(to_bottom,#5cff5d20_1px,transparent_1px)] bg-[size:40px_40px]  justify-center overflow-hidden bg-green-50 rounded-xl mb-3">
+              <SweepLine />
+              <div className="px-3 text-sm gap-1 rounded-full py-1  flex items-center absolute top-4 left-4">
+                Savings <TrendingUp size={16} className="text-green-600" />
+              </div>
+            </div>
             <div className="flex flex-col">
               <h3 className="text-lg sm:text-xl font-semibold">
                 Transparent Pricing.
@@ -121,7 +131,7 @@ const FeatureSection = () => {
               </h3>
 
               <p className=" text-sm sm:text-base">
-                .Design, development, and deployment. All in one place. Just
+                Design, development, and deployment. All in one place. Just
                 seamless execution.
               </p>
             </div>
