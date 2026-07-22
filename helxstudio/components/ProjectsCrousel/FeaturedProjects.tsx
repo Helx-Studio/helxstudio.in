@@ -1,6 +1,6 @@
 import CustomerCarousel, {
   CarouselSlide,
-} from "@/components/Features/CustomerCarousel";
+} from "@/components/ProjectsCrousel/CustomerCarousel";
 
 const slides: CarouselSlide[] = [
   {

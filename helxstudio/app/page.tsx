@@ -1,16 +1,16 @@
 import Navbar from "@/components/Advancments/Navbar";
-import FeatureProjects from "@/components/Features/FeaturedProjects";
+import FeatureProjects from "@/components/ProjectsCrousel/FeaturedProjects";
 import Hero from "@/components/Hero/Hero";
+import FeatureSection from "@/components/Features/FeatureSection";
 
 export default function Home() {
   return (
-    <div className="flex   items-center justify-center bg-zinc-50 font-sans ">
-      <main className=" w-full relative h-full max-w-[102rem] flex-col items-center border-x">
+    <div className="flex   items-center justify-center  font-sans ">
+      <main className=" w-full relative h-full max-w-[85rem] flex-col items-center border-x border-neutral-200">
         <Navbar />
         <Hero />
         <FeatureProjects />
-        {/* <div className="h-screen bg-yellow-700">Page 2</div> */}
-        <div className="h-screen bg-purple-500">Page 3</div>
+        <FeatureSection />
       </main>
     </div>
   );

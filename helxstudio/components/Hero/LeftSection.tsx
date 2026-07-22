@@ -40,26 +40,6 @@ const LeftSection = ({
           Tell your Idea. <br />
           Wake up launched.
         </motion.h1>
-        <motion.div
-          style={{
-            y: leftHeadingX,
-          }}
-          className="text-md flex items-center bg-yellow-50 border border-yellow-200 text-yellow-700  justify-center gap-1 font-secondary px-2 py-1 rounded-md ml-8 absolute top-80 font-medium "
-        >
-          {" "}
-          <Star fill="#FFDB58" size={18} className="text-amber-400" />
-          Senior Talent
-        </motion.div>
-        <motion.div
-          style={{
-            y: leftHeadingX,
-          }}
-          className="text-md flex items-center bg-green-50 border border-green-200 text-green-700  justify-center gap-1 font-secondary px-2 py-1 rounded-md ml-45 absolute top-80 font-medium "
-        >
-          {" "}
-          <Timer size={18} className="text-green-400" />
-          Fast Delivery
-        </motion.div>
       </div>
       <div className="w-full h-105 relative bg-gray-600">
         <div className="w-full inset-0  absolute h-full">
