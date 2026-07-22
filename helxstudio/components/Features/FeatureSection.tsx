@@ -4,7 +4,7 @@ import CardFirstSvg from "./CardFirstSvg";
 import coin from "@/public/Feature/coin.png";
 import growth from "@/public/Feature/growth.png";
 import Image from "next/image";
-
+import Performance from "./Performance";
 const FeatureSection = () => {
   return (
     <div className="h-screen px-8 border-t border-neutral-200 relative">
@@ -26,11 +26,11 @@ const FeatureSection = () => {
 
       {/* BentoLayout */}
       <div className="w-full max-w-7xl mx-auto mt-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
           {/*
            */}
           {/* Card 1 */}
-          <div className="lg:col-span-3 rounded-lg border border-neutral-200 p-5">
+          <div className="lg:col-span-3 outline-3 outline-yellow-200 outline-offset-1 rounded-lg border border-neutral-200 p-5">
             <div className="h-50 relative bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#f5f5f5_10px,#f5f5f5_11px)]  flex items-center justify-center overflow-hidden bg-neutral-50 rounded-xl mb-3">
               <motion.div
                 animate={{
@@ -67,8 +67,10 @@ const FeatureSection = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="lg:col-span-3 border border-neutral-200 p-5">
-            <div className="h-50 relative bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#f5f5f5_10px,#f5f5f5_11px)]  flex items-center justify-center overflow-hidden bg-neutral-50 rounded-xl mb-3"></div>
+          <div className="lg:col-span-3 outline-3 outline-green-200 outline-offset-1 border rounded-lg  border-neutral-200 p-5">
+            <div className="h-50 relative  flex items-center justify-center overflow-hidden bg-green-50 rounded-xl mb-3">
+              <Performance />
+            </div>
             <div className="flex flex-col">
               <h3 className="text-lg sm:text-xl font-semibold">
                 Build to Perform
