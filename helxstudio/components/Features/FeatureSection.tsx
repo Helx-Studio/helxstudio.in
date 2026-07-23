@@ -7,6 +7,7 @@ import Image from "next/image";
 import Performance from "./Performance";
 import { SweepLine } from "./PricingGraph";
 import { TrendingUp } from "lucide-react";
+import NotificationStackCard from "./FullCycleDevlopment";
 const FeatureSection = () => {
   return (
     <div className="h-screen px-8 mb-3 border-t border-neutral-200 relative">
@@ -34,7 +35,7 @@ const FeatureSection = () => {
           {/*
            */}
           {/* Card 1 */}
-          <div className="lg:col-span-3 outline-3 outline-yellow-200 outline-offset-1 rounded-lg border border-neutral-200 p-5">
+          <div className="lg:col-span-3 hover:outline-8 transition-all duration-300 outline-neutral-50  rounded-lg border border-neutral-200 p-5">
             <div className="h-50 relative bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#f5f5f5_10px,#f5f5f5_11px)]  flex items-center justify-center overflow-hidden bg-neutral-50 rounded-xl mb-3">
               <motion.div
                 animate={{
@@ -71,7 +72,7 @@ const FeatureSection = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="lg:col-span-3 outline-3 outline-green-200 outline-offset-1 border rounded-lg  border-neutral-200 p-5">
+          <div className="lg:col-span-3 hover:outline-8 transition-all duration-300 outline-neutral-50  border rounded-lg  border-neutral-200 p-5">
             <div className="h-50 relative  flex items-center justify-center overflow-hidden bg-green-50 rounded-xl mb-3">
               <Performance />
             </div>
@@ -124,12 +125,12 @@ const FeatureSection = () => {
           </div>
 
           {/* Card 5 */}
-          <div className="md:col-span-2 lg:col-span-2 border border-neutral-200 p-5">
+          <div className="lg:col-span-2 rounded-lg border border-neutral-200 p-5">
+            <NotificationStackCard />
             <div className="flex flex-col">
               <h3 className="text-lg sm:text-xl font-semibold">
                 Full Cycle Development.
               </h3>
-
               <p className=" text-sm sm:text-base">
                 Design, development, and deployment. All in one place. Just
                 seamless execution.
