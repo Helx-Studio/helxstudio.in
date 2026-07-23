@@ -9,14 +9,12 @@ const Hero = () => {
     target: sectionRef,
     offset: ["start start", "end end"],
   });
-
   const leftWidth = useTransform(scrollYProgress, [0, 1], ["66.666%", "0%"]);
   const rightWidth = useTransform(scrollYProgress, [0, 1], ["33.333%", "100%"]);
   const leftHeadingX = useTransform(scrollYProgress, [0, 0.4], [0, -850]);
   const leftDiv = useTransform(scrollYProgress, [0, 1], [0, -250]);
   const leftRight = useTransform(scrollYProgress, [0, 1], ["80%", "100%"]);
   const leftBottom = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
-
   const line1X = useTransform(scrollYProgress, [0, 0.8], [0, 65]);
   const line2X = useTransform(scrollYProgress, [0, 0.8], [0, 53]);
   const line3X = useTransform(scrollYProgress, [0, 0.8], [0, 20]);
@@ -31,7 +29,7 @@ const Hero = () => {
         className="
           sticky top-0
           flex
-          h-screen
+          // h-screen
           w-full
           overflow-hidden
           bg-white

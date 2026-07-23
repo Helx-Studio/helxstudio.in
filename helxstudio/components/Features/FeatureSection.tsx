@@ -106,7 +106,7 @@ const FeatureSection = () => {
           <div className="lg:col-span-2 rounded-lg border border-neutral-200 p-5">
             <div className="h-50 relative  flex items-center bg-[linear-gradient(to_right,#5cff5d20_1px,transparent_1px),linear-gradient(to_bottom,#5cff5d20_1px,transparent_1px)] bg-[size:40px_40px]  justify-center overflow-hidden bg-green-50 rounded-xl mb-3">
               <SweepLine />
-              <div className="px-3 text-sm gap-1 rounded-full py-1  flex items-center absolute top-4 left-4">
+              <div className=" text-sm gap-1 rounded-full py-1 text-medium  flex items-center absolute top-4 left-4">
                 Savings <TrendingUp size={16} className="text-green-600" />
               </div>
             </div>

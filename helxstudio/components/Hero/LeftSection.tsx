@@ -21,6 +21,7 @@ const LeftSection = ({
       }}
       className="
               h-full
+              max-h-180
               flex
               flex-col
             "
@@ -41,7 +42,7 @@ const LeftSection = ({
           Wake up launched.
         </motion.h1>
       </div>
-      <div className="w-full h-105 relative bg-gray-600">
+      <div className="w-full h-105 relative bg-transparent">
         <div className="w-full inset-0  absolute h-full">
           {" "}
           <video

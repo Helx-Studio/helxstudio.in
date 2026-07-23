@@ -44,7 +44,7 @@ const RightSection = ({
       style={{
         width: rightWidth,
       }}
-      className="h-full bg-[#fcfcfc] relative  flex flex-col"
+      className="h-full     max-h-181 bg-[#fcfcfc] relative  flex flex-col"
     >
       <motion.div
         style={{ top: iconDiv }}
