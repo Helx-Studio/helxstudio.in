@@ -72,8 +72,8 @@ const FeatureSection = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="lg:col-span-3 hover:outline-8 transition-all duration-300 outline-neutral-50  border rounded-lg  border-neutral-200 p-5">
-            <div className="h-50 relative  flex items-center justify-center overflow-hidden bg-green-50 rounded-xl mb-3">
+          <div className="lg:col-span-3 group hover:outline-8 transition-all duration-300 outline-neutral-50  border rounded-lg  border-neutral-200 p-5">
+            <div className="h-50 relative  flex items-center justify-center overflow-hidden bg-neutral-50 rounded-xl mb-3">
               <Performance />
             </div>
             <div className="flex flex-col">
@@ -88,7 +88,7 @@ const FeatureSection = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="lg:col-span-2 border border-neutral-200 p-5">
+          <div className="lg:col-span-2 border rounded-lg hover:outline-8 transition-all duration-300 outline-neutral-50 border-neutral-200 p-5">
             <div className="flex flex-col">
               <h3 className="text-lg sm:text-xl font-semibold">
                 Post Launch Support.
@@ -104,7 +104,7 @@ const FeatureSection = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="lg:col-span-2 rounded-lg border border-neutral-200 p-5">
+          <div className="lg:col-span-2 rounded-lg hover:outline-8 transition-all duration-300 outline-neutral-50 border border-neutral-200 p-5">
             <div className="h-50 relative  flex items-center bg-[linear-gradient(to_right,#5cff5d20_1px,transparent_1px),linear-gradient(to_bottom,#5cff5d20_1px,transparent_1px)] bg-[size:40px_40px]  justify-center overflow-hidden bg-green-50 rounded-xl mb-3">
               <SweepLine />
               <div className=" text-sm gap-1 rounded-full py-1 text-medium  flex items-center absolute top-4 left-4">
@@ -125,7 +125,7 @@ const FeatureSection = () => {
           </div>
 
           {/* Card 5 */}
-          <div className="lg:col-span-2 rounded-lg border border-neutral-200 p-5">
+          <div className="lg:col-span-2 rounded-lg hover:outline-8 transition-all duration-300 outline-neutral-50 border border-neutral-200 p-5">
             <NotificationStackCard />
             <div className="flex flex-col">
               <h3 className="text-lg sm:text-xl font-semibold">
