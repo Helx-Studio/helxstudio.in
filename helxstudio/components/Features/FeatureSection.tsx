@@ -8,7 +8,7 @@ import Performance from "./Performance";
 import { SweepLine } from "./PricingGraph";
 import { TrendingUp } from "lucide-react";
 import NotificationStackCard from "./FullCycleDevlopment";
-import PostLaunchAnimation from '@/components/Features/FeatureSection'
+import PostLaunchAnimation from "./PostLaunchAnimaton";
 const FeatureSection = () => {
   return (
     <div className="h-screen px-8 mb-3 border-t border-neutral-200 relative">
@@ -90,8 +90,8 @@ const FeatureSection = () => {
 
           {/* Card 3 */}
           <div className="lg:col-span-2 border rounded-lg hover:outline-8 transition-all duration-300 outline-neutral-50 border-neutral-200 p-5">
-            <div className="h-50 relative  bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#f5f5f5_10px,#f5f5f5_11px)] flex items-center justify-center overflow-hidden bg-neutral-50 rounded-xl mb-3">
-              <Performance />
+            <div className="h-50 relative bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#f5f5f5_10px,#f5f5f5_11px)] flex items-center justify-center overflow-hidden bg-neutral-50 rounded-xl mb-3">
+              <PostLaunchAnimation />
             </div>
             <div className="flex flex-col">
               <h3 className="text-lg sm:text-xl font-semibold">
@@ -130,7 +130,7 @@ const FeatureSection = () => {
 
           {/* Card 5 */}
           <div className="lg:col-span-2 rounded-lg hover:outline-8 transition-all duration-300 outline-neutral-50 border border-neutral-200 p-5">
-            <PostLaunchAnimation />
+            <NotificationStackCard />
             <div className="flex flex-col">
               <h3 className="text-lg sm:text-xl font-semibold">
                 Full Cycle Development.
