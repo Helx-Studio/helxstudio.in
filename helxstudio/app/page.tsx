@@ -3,6 +3,7 @@ import FeatureProjects from "@/components/ProjectsCrousel/FeaturedProjects";
 import Hero from "@/components/Hero/Hero";
 import FeatureSection from "@/components/Features/FeatureSection";
 import PricingSection from "@/components/Pricing/PrcingPage";
+import FaqsSections from "@/components/Faq/FaqsSections";
 export default function Home() {
   return (
     <div className="flex   items-center justify-center  font-sans ">
@@ -12,6 +13,7 @@ export default function Home() {
         <FeatureProjects />
         <FeatureSection />
         <PricingSection />
+        <FaqsSections />
       </main>
     </div>
   );

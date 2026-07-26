@@ -245,7 +245,7 @@ function PricingSection() {
         </div>
       </div>
 
-      <div className="text-center flex flex-col  pb-26">
+      <div className="text-center flex flex-col  pb-6">
         <p className="text-sm text-neutral-600">Still Confused?</p>
         <div className="flex items-center  gap-2">
           <p className="text-neutral-700 font-semibold ">
