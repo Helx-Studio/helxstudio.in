@@ -11,7 +11,7 @@ import NotificationStackCard from "./FullCycleDevlopment";
 import PostLaunchAnimation from "./PostLaunchAnimaton";
 const FeatureSection = () => {
   return (
-    <div className="h-screen px-8 mb-3 border-t border-neutral-200 relative">
+    <div className=" px-8 mb-3 border-t border-neutral-200 relative">
       <div className="h-3 w-3 bg-transparent border-neutral-600 absolute top-0 border-t border-l left-0" />
       <div className="h-3 w-3 bg-transparent border-neutral-600 absolute top-0 border-t border-r right-0" />
 

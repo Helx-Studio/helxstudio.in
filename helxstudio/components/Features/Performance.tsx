@@ -39,7 +39,7 @@ const Performance = () => {
           fill="url(#paint2_linear_161_371)"
           fill-opacity="0.28"
           stroke="white"
-          stroke-width="1.39647"
+          strokeWidth="1.39647"
         />
         <rect
           x="96"
@@ -81,49 +81,49 @@ const Performance = () => {
           d="M448.224 230.353C448.236 228.171 450.382 226.318 452.764 227.057L503.996 243.149C505.803 243.712 506.506 245.518 506.072 247.032L504.184 259.37C503.926 260.978 502.835 262.327 501.322 262.913L493.463 265.962L483.693 269.751C483.036 270.009 482.52 270.502 482.227 271.135L475.588 285.726C473.911 288.775 469.525 288.752 467.871 285.691L448.623 244.604C448.037 243.361 447.767 241.988 447.814 240.616L448.224 230.353Z"
           fill="white"
           stroke="#0C0C0C"
-          stroke-width="1.17022"
-          stroke-miterlimit="10"
-          stroke-linejoin="round"
+          strokeWidth="1.17022"
+          strokeMiterlimit="10"
+          strokeLinejoin="round"
         />
         <path
           d="M482.731 257.225L476.256 268.954C474.579 272.004 470.192 271.981 468.539 268.919L448.646 232.043C447.156 229.287 449.772 226.12 452.763 227.058L503.996 243.15C506.881 244.053 506.939 248.123 504.078 249.12L484.197 255.993C483.575 256.205 483.047 256.65 482.719 257.237L482.731 257.225Z"
           fill="white"
           stroke="black"
-          stroke-width="1.17022"
-          stroke-miterlimit="10"
-          stroke-linejoin="round"
+          strokeWidth="1.17022"
+          strokeMiterlimit="10"
+          strokeLinejoin="round"
         />
         <path d="M482.589 270.56L483.621 256.263Z" fill="white" />
         <path
           d="M482.589 270.56L483.621 256.263"
           stroke="#0C0C0C"
-          stroke-width="0.65012"
-          stroke-miterlimit="10"
-          stroke-linejoin="round"
+          strokeWidth="0.65012"
+          strokeMiterlimit="10"
+          strokeLinejoin="round"
         />
         <path d="M475.6 285.715L477.629 266.386Z" fill="white" />
         <path
           d="M475.6 285.715L477.629 266.386"
           stroke="#0C0C0C"
-          stroke-width="0.65012"
-          stroke-miterlimit="10"
-          stroke-linejoin="round"
+          strokeWidth="0.65012"
+          strokeMiterlimit="10"
+          strokeLinejoin="round"
         />
         <path d="M467.882 285.679L467.424 266.994Z" fill="white" />
         <path
           d="M467.882 285.679L467.424 266.994"
           stroke="#0C0C0C"
-          stroke-width="0.65012"
-          stroke-miterlimit="10"
-          stroke-linejoin="round"
+          strokeWidth="0.65012"
+          strokeMiterlimit="10"
+          strokeLinejoin="round"
         />
-        <g clip-path="url(#clip1_161_371)">
+        <g clipPath="url(#clip1_161_371)">
           <path
             d="M579.368 291.662L593.511 300.159L610.506 271.874M514.255 343.968L548.215 335.5M548.215 335.5L593.496 324.211M548.215 335.5C542.961 314.427 546.014 292.139 556.743 273.255C545.549 276.046 535.433 282.094 527.676 290.634C519.919 299.174 514.868 309.823 513.163 321.233C511.457 332.644 513.174 344.304 518.095 354.739C523.017 365.174 530.922 373.915 540.811 379.857C550.701 385.799 562.13 388.675 573.654 388.122C585.178 387.568 596.279 383.61 605.553 376.747C614.828 369.885 621.859 360.426 625.757 349.567C629.656 338.709 630.247 326.938 627.456 315.744L593.496 324.211M548.215 335.5C553.469 356.574 566.629 374.819 584.967 386.456C595.696 367.572 598.75 345.285 593.496 324.211"
             stroke="#4C4C4C"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </g>
       </g>
@@ -134,32 +134,32 @@ const Performance = () => {
         height="330"
         rx="31"
         stroke="#4D4D4D"
-        stroke-width="10"
+        strokeWidth="10"
       />
       <g filter="url(#filter1_d_161_371)">
         <path
           d="M554.736 70.3994C551.162 71.2015 547.951 68.1685 547.951 64.1973V44.0918C547.951 40.1951 551.11 37.0361 555.007 37.0361H581.761C581.993 37.0363 582.15 37.2205 582.143 37.4102C581.544 53.5834 570.022 66.9688 554.736 70.3994Z"
           fill="#BC7AFF"
           stroke="#26103D"
-          stroke-width="1.89957"
+          strokeWidth="1.89957"
         />
         <path
           d="M583.369 34.792C583.362 34.9817 583.519 35.1658 583.751 35.166L610.505 35.166C614.402 35.166 617.561 32.007 617.561 28.1104L617.561 8.00488C617.56 4.03362 614.35 1.00069 610.775 1.80274C595.49 5.23333 583.967 18.6188 583.369 34.792Z"
           fill="#BC7AFF"
           stroke="#26103D"
-          stroke-width="1.89957"
+          strokeWidth="1.89957"
         />
         <path
           d="M581.792 35.1416C581.982 35.1486 582.166 34.992 582.166 34.7598L582.166 8.00587C582.166 4.10919 579.007 0.950201 575.11 0.9502L555.005 0.950197C551.034 0.950443 548.001 4.16108 548.803 7.73535C552.233 23.021 565.619 34.5433 581.792 35.1416Z"
           fill="#BC7AFF"
           stroke="#26103D"
-          stroke-width="1.89957"
+          strokeWidth="1.89957"
         />
         <path
           d="M616.708 64.4678C617.51 68.042 614.477 71.2527 610.506 71.2529L590.4 71.2529C586.504 71.2529 583.345 68.0939 583.345 64.1973L583.345 37.4434C583.345 37.2112 583.529 37.0545 583.719 37.0615C599.892 37.6599 613.277 49.1822 616.708 64.4678Z"
           fill="#BC7AFF"
           stroke="#26103D"
-          stroke-width="1.89957"
+          strokeWidth="1.89957"
         />
       </g>
       <g filter="url(#filter2_d_161_371)">
@@ -170,7 +170,7 @@ const Performance = () => {
         <path
           d="M41.1592 322.95H52.4629C53.2872 322.95 53.9551 323.618 53.9551 324.442V331.874C53.9551 333.747 55.4743 335.266 57.3477 335.266H65.8232C66.6475 335.266 67.3164 335.934 67.3164 336.759V344.19C67.3166 346.064 68.8348 347.582 70.708 347.582H79.1846C80.0087 347.582 80.6768 348.251 80.6768 349.075V356.506C80.6768 358.379 82.1952 359.898 84.0684 359.898H91.1797C92.0038 359.899 92.6717 360.567 92.6719 361.391V367.454C92.6718 368.278 92.0039 368.946 91.1797 368.946H2.44238C1.6181 368.946 0.950219 368.278 0.950195 367.454V361.391C0.95036 360.566 1.61819 359.898 2.44238 359.898H9.55273C11.4261 359.898 12.9453 358.379 12.9453 356.506V349.075C12.9453 348.251 13.6132 347.582 14.4375 347.582H22.9141C24.7871 347.582 26.3055 346.064 26.3057 344.19V336.759C26.3057 335.935 26.9737 335.266 27.7979 335.266H36.2744C38.1477 335.266 39.6659 333.747 39.666 331.874V324.442C39.666 323.618 40.3349 322.95 41.1592 322.95Z"
           stroke="#26103D"
-          stroke-width="1.89957"
+          strokeWidth="1.89957"
         />
       </g>
       <defs>
@@ -181,9 +181,9 @@ const Performance = () => {
           width="290"
           height="255"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -202,9 +202,9 @@ const Performance = () => {
           width="74.4948"
           height="78.3089"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -236,9 +236,9 @@ const Performance = () => {
           width="96.6071"
           height="54.0023"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -271,8 +271,8 @@ const Performance = () => {
           y2="445"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#2C2C2C" />
-          <stop offset="1" stop-color="#0E0E0E" />
+          <stop stopColor="#2C2C2C" />
+          <stop offset="1" stopColor="#0E0E0E" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_161_371"
@@ -282,8 +282,8 @@ const Performance = () => {
           y2="837.071"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#161616" />
-          <stop offset="1" stop-color="#343434" />
+          <stop stopColor="#161616" />
+          <stop offset="1" stopColor="#343434" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_161_371"
@@ -293,8 +293,8 @@ const Performance = () => {
           y2="272.444"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D9D9D9" stop-opacity="0.75" />
-          <stop offset="1" stop-color="#737373" stop-opacity="0.67" />
+          <stop stopColor="#D9D9D9" stopOpacity="0.75" />
+          <stop offset="1" stopColor="#737373" stopOpacity="0.67" />
         </linearGradient>
         <clipPath id="clip0_161_371">
           <rect x="50" y="36" width="533" height="320" rx="26" fill="white" />
