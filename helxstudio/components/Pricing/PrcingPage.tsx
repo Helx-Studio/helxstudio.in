@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import { useState } from "react";
-
+import Link from 'next/link'
 import {
   Globe,
   DeviceMobile,
@@ -251,18 +251,19 @@ function PricingSection() {
           <p className="text-neutral-700 font-semibold ">
             Let's have an quick chat
           </p>{" "}
-          <motion.div
+          <Link
+          href={"/https://t.me/helxstudio"}
             onMouseLeave={() => setOpen(false)}
             onMouseEnter={() => setOpen(true)}
             className="flex items-center cursor-pointer gap-1 w-fit group transition-all duration-200 px-2 py-2 bg-blue-50 rounded-md "
           >
             <TelegramLogoIcon fill="#5c93ff" />{" "}
             <span className="grid grid-cols-[0fr] transition-[grid-template-columns] duration-500 ease-out group-hover:grid-cols-[1fr]">
-              <span className="overflow-hidden text-semibold text-blue-600 text-sm whitespace-nowrap opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              <span className="overflow-hidden text-bold text-blue-400  text-sm whitespace-nowrap opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                 Send a meassage
               </span>
             </span>
-          </motion.div>
+          </Link>
         </div>
       </div>
     </section>

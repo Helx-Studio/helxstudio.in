@@ -131,7 +131,7 @@ const Footer = () => {
           {SOCIAL_LINKS.map((social) => {
             const IconComponent = social.icon;
             return (
-              <a
+              <Link
                 key={social.label}
                 href={social.url}
                 target="_blank"
@@ -140,7 +140,7 @@ const Footer = () => {
                 aria-label={social.label}
               >
                 <IconComponent size={20} weight="bold" />
-              </a>
+              </Link>
             );
           })}
         </div>
