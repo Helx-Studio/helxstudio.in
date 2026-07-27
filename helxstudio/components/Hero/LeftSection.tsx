@@ -1,9 +1,10 @@
 "use client";
 import { motion, MotionValue } from "motion/react";
 import PixelSquares from "@/components/Advancments/MatrixBG";
-import { Star, Timer } from "lucide-react";
-import clock from "@/public/clocl.gif";
-import Image from "next/image";
+import vind from '@/public/Projects/arvind-sahakari-bank.png'
+import second from '@/public/Projects/fyypedvideo.png'
+import thrid from '@/public/Projects/mitun.png'
+import { ImagesBadge } from "../Advancments/image-badge";
 const LeftSection = ({
   leftWidth,
   leftHeadingX,
@@ -31,16 +32,18 @@ const LeftSection = ({
         <div className="absolute  inset-0 h-8 top-0 left-0">
           <PixelSquares />
         </div>
-        <motion.h1
+        
+        <motion.div
           style={{
             y: leftHeadingX,
           }}
-          className="text-6xl font-Main px-6  mt-46 font-semibold text-neutral-900"
+          className=" gap-3 flex flex-col  px-6  mt-46  text-neutral-900"
         >
           {" "}
-          Tell your Idea. <br />
-          Wake up launched.
-        </motion.h1>
+          <div><ImagesBadge images={[`${vind.src}`, `${second.src}`, `${thrid.src}`]} text="10+ Projects Completed"/> </div>
+         <h1 className="text-6xl font-semibold font-Main"> Tell your Idea. <br />
+          Wake up launched.</h1>
+        </motion.div>
       </div>
       <div className="w-full h-105 relative bg-transparent">
         <div className="w-full inset-0  absolute h-full">
