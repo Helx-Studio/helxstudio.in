@@ -1,34 +1,52 @@
 "use client";
 import { useState } from "react";
-import { CaretDownIcon } from "@phosphor-icons/react";
+import { BouncyAccordion } from "./bouncy-accordion";
+import {
+  CurrencyDollar,
+  LockKey,
+  Lifebuoy,
+  Sparkle,
+  ClockCountdown,
+} from "@phosphor-icons/react";
 
-const FAQS = [
+export const FAQS = [
   {
+    id: "pricing",
+    icon: <CurrencyDollar className="w-4 h-4"/>,
     title: "How much does a website or store cost?",
     description:
-      "It depends on the scope – a corporate website has a different budget than a store with integrations and wholesale logic. We provide a specific quote after the initial conversation. We divide payment into stages – you pay for the work you complete, not the entire project upfront. Before we begin, we work with you to determine when the project will pay off.",
+      "It depends on the scope—a corporate website has a different budget than a store with integrations and wholesale logic. We provide a specific quote after the initial conversation. We divide payment into stages, so you pay only for completed work instead of the full project upfront. Before we begin, we help determine when the project is likely to pay for itself.",
   },
   {
-    title: "Who owns the code - will I become addicted to you?",
+    id: "ownership",
+    icon: <LockKey className="w-4 h-4"/>,
+    title: "Who owns the code? Will I be locked in?",
     description:
-      "The code, repository, and access are yours from day one—guaranteed by the contract. We hold nothing hostage.",
+      "The code, repository, and all project access belong to you from day one, guaranteed by contract. We never hold your assets hostage.",
   },
   {
-    title: "What if something breaks after implementation?",
+    id: "support",
+    icon: <Lifebuoy className="w-4 h-4"/>,
+    title: "What if something breaks after launch?",
     description:
-      "We fix bugs in our code free of charge for 12 months after implementation. You won't have to pay for the same thing twice.",
+      "We fix bugs in our own code free of charge for 12 months after launch. You won't have to pay twice for the same issue.",
   },
   {
-    title: "If AI can build a website in a single prompt, why hire us?",
+    id: "ai-vs-agency",
+    icon: <Sparkle className="w-4 h-4"/>,
+    title: "If AI can build a website in one prompt, why hire us?",
     description:
-      "Yes, AI tools can produce a website from a prompt—but there's a critical difference between a website and a website that works for your business. Business Goals, Design Strategy, Technical Debt, Accountability, Ongoing Optimization, Complex Requirements provided by us.",
+      "AI can generate websites quickly, but generating code isn't the same as building a product that grows your business. We provide business strategy, UX, performance optimisation, scalable architecture, accountability, ongoing support, and custom solutions for complex requirements.",
   },
   {
+    id: "timeline",
+    icon: <ClockCountdown/>,
     title: "How long does the project take?",
     description:
-      "It depends on the scope—usually from a few weeks to a few months. Thanks to AI, we can cut this time by up to half at each stage. We set the schedule at the beginning and write it down in the contract - along with the penalty for our delay.",
+      "Project timelines depend on the scope, typically ranging from a few weeks to a few months. AI helps us accelerate delivery, often reducing development time significantly. We define the timeline upfront in the contract, including penalties if we miss agreed deadlines.",
   },
 ];
+
 
 const FaqsSection = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -37,66 +55,20 @@ const FaqsSection = () => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
-  return (
-    <div
-      className="bg-linear-to-t from-[#d1d1d1]/30 to-white
- py-16 px-6"
-    >
-      <div className="max-w-2xl mx-auto">
+  return <div className="max-w-2xl mt-6 mx-auto">
         <h1 className="text-4xl font-bold text-neutral-900 mb-2 text-center">
           Have Questions?
         </h1>
         <p className="text-neutral-600 text-center mb-6">
           Everything you need to know before starting a project.
         </p>
-
-        <div className="space-y-3">
-          {FAQS.map((faq, index) => (
-            <button
-              key={index * Math.random()}
-              onClick={() => toggleFaq(index)}
-              className="w-full text-left"
-            >
-              <div className="bg-white group overflow-hidden  rounded-2xl border border-neutral-200 hover:border-neutral-300 transition-colors duration-200">
-                {/* Header */}
-                <div className="flex relative overflow-hidden items-center justify-between p-6">
-                  <div className="flex gap-2 items-center">
-                    <p>
-                      0{index + 1}
-                      <span>.</span>
-                    </p>
-                    <h2 className="text-md group-hover:translate-x-2 transition-transform duration-300 ease-initial font-semibold text-neutral-900 pr-4">
-                      {faq.title}
-                    </h2>
-                  </div>
-                  <CaretDownIcon
-                    className={`w-5 h-5 text-neutral-600 shrink-0 transition-transform duration-300 ${
-                      expandedIndex === index ? "rotate-180" : ""
-                    }`}
-                  />
-                </div>
-
-                {/* Description */}
-                <div
-                  className={`grid grid-cols-1 transition-[grid-template-rows] duration-500 ease-out overflow-hidden ${
-                    expandedIndex === index
-                      ? "grid-rows-[1fr]"
-                      : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="px-6 pb-6 text-neutral-700 leading-relaxed">
-                      {faq.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
+<div className="flex min-h-96 w-full items-center ">
+      <div className="w-full max-w-2xl h-[400px]">
+        <BouncyAccordion items={FAQS} defaultValue="calendar" />
       </div>
-    </div>
-  );
+      </div>
+      </div>
+
 };
 
 export default FaqsSection;
