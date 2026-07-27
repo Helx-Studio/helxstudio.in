@@ -3,7 +3,8 @@ import { Geist, Geist_Mono, Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/Advancments/SmoothScrool";
 import localFont from "next/font/local";
-
+// import { Analytics } from "@vercel/analytics/next"
+// import { SpeedInsights } from "@vercel/speed-insights/next"
 const Mistral = localFont({
   variable: "--font-Main",
   src: "../components/font/ALTMistral-Medium.woff2",
@@ -44,6 +45,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <SmoothScroll>{children}</SmoothScroll>
         <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        {/* <Analytics/> */}
+        {/* <SpeedInsights/> */}
       </body>
     </html>
   );
