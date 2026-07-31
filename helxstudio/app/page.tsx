@@ -4,7 +4,7 @@ import Hero from "@/components/Hero/Hero";
 import FeatureSection from "@/components/Features/FeatureSection";
 import PricingSection from "@/components/Pricing/PrcingPage";
 import FaqsSections from "@/components/Faq/FaqsSections";
-import Footer from '@/components/Footer/Footer'
+import Footer from "@/components/Footer/Footer";
 export default function Home() {
   return (
     <div className="flex   items-center justify-center  font-sans ">
@@ -15,7 +15,7 @@ export default function Home() {
         <FeatureSection />
         <PricingSection />
         <FaqsSections />
-        <Footer/>
+        <Footer />
       </main>
     </div>
   );
