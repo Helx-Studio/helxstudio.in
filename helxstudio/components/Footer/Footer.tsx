@@ -4,8 +4,8 @@ import {
   XLogoIcon,
   TelegramLogoIcon,
   InstagramLogoIcon,
-  RedditLogoIcon,
   ArrowUp,
+  YoutubeLogoIcon,
 } from "@phosphor-icons/react";
 import StudioLogo from "../extra/Studio-Logo";
 import Link from "next/link";
@@ -29,8 +29,8 @@ const NAVLINKS = [
     title: "GET IN TOUCH",
     links: [
       {
-        label: "Contact",
-        url: "#contact",
+        label: "+91 9079395654",
+        url: "",
       },
       {
         label: "Book a call",
@@ -72,6 +72,11 @@ const SOCIAL_LINKS = [
     icon: InstagramLogoIcon,
     url: "https://instagram.com/helxstudio",
     label: "Instagram",
+  },
+  {
+    icon: YoutubeLogoIcon,
+    url: "https://instagram.com/helxstudio",
+    label: "Youtube",
   },
 ];
 
@@ -118,7 +123,6 @@ const Footer = () => {
           </div>
         ))}
       </div>
-
 
       {/* Copyright and Social Links */}
       <div className="border-t border-neutral-200 px-6 sm:px-8 md:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">

@@ -72,10 +72,10 @@ export function ImagesBadge({
         }}
       >
         {/* Folder Back */}
-        <div className="absolute inset-0 rounded-[4px] bg-gradient-to-b from-amber-400 to-amber-500 shadow-sm dark:from-amber-500 dark:to-amber-600">
+        <div className="absolute inset-0 rounded-[4px] bg-gradient-to-b from-amber-400 to-amber-500 shadow-sm  ">
           {/* Folder Tab */}
           <div
-            className="absolute left-0.5 rounded-t-[2px] bg-gradient-to-b from-amber-300 to-amber-400 dark:from-amber-400 dark:to-amber-500"
+            className="absolute left-0.5 rounded-t-[2px] bg-gradient-to-b from-amber-300 to-amber-400  "
             style={{
               top: -tabHeight * 0.65,
               width: tabWidth,
@@ -117,7 +117,7 @@ export function ImagesBadge({
           return (
             <motion.div
               key={index}
-              className="absolute top-0.5 left-1/2 origin-bottom overflow-hidden rounded-[3px] bg-white shadow-sm ring-1 shadow-black/10 ring-black/10 dark:bg-neutral-800 dark:shadow-white/10 dark:ring-white/10"
+              className="absolute top-0.5 left-1/2 origin-bottom overflow-hidden rounded-[3px] bg-white shadow-sm ring-1 shadow-black/10 ring-black/10 "
               animate={{
                 x: `calc(-50% + ${isHovered ? hoverX : 0}px)`,
                 y: isHovered ? hoverY : teaseY,
@@ -148,7 +148,7 @@ export function ImagesBadge({
 
         {/* Folder Front (flattens on hover) */}
         <motion.div
-          className="absolute inset-x-0 bottom-0 h-[85%] origin-bottom rounded-[4px] bg-gradient-to-b from-amber-300 to-amber-400 shadow-sm dark:from-amber-400 dark:to-amber-500"
+          className="absolute inset-x-0 bottom-0 h-[85%] origin-bottom rounded-[4px] bg-gradient-to-b from-amber-300 to-amber-400 shadow-sm "
           animate={{
             rotateX: isHovered ? -45 : -25,
             scaleY: isHovered ? 0.8 : 1,
@@ -164,14 +164,12 @@ export function ImagesBadge({
           }}
         >
           {/* Folder line detail */}
-          <div className="absolute top-1 right-1 left-1 h-px bg-amber-200/50 dark:bg-amber-300/50" />
+          <div className="absolute top-1 right-1 left-1 h-px bg-amber-200/50 " />
         </motion.div>
       </motion.div>
 
       {/* Text */}
-      <span className="text-sm font-medium text-neutral-700 dark:text-neutral-200">
-        {text}
-      </span>
+      <span className="text-sm font-medium text-neutral-700 ">{text}</span>
     </Component>
   );
 }
