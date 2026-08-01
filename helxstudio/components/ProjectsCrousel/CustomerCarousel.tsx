@@ -10,7 +10,6 @@ export type CarouselSlide = {
   title?: string;
   image: string; // background image url
   video?: string; // hover video url
-  href: string;
   theme?: "dark" | "light"; // controls eyebrow/text contrast if needed
 };
 
@@ -50,8 +49,7 @@ function CarouselCard({
   };
 
   return (
-    <a
-      href={slide.href}
+    <div
       onClick={onCardClick}
       onDragStart={(e) => e.preventDefault()}
       draggable={false}
@@ -81,7 +79,7 @@ function CarouselCard({
           />
         )}
       </div>
-    </a>
+    </div>
   );
 }
 
