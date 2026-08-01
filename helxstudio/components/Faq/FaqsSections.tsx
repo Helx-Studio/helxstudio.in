@@ -55,7 +55,7 @@ const FaqsSection = () => {
   };
 
   return (
-    <div className="max-w-2xl mt-6 mx-auto">
+    <section id="faqs" className="max-w-2xl mt-6 mx-auto scroll-mt-20">
       <h1 className="text-4xl font-bold text-neutral-900 mb-2 text-center">
         Have Questions?
       </h1>
@@ -67,7 +67,7 @@ const FaqsSection = () => {
           <BouncyAccordion items={FAQS} defaultValue="calendar" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

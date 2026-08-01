@@ -77,7 +77,7 @@ function PricingSection() {
   ];
 
   return (
-    <section className=" border-y relative flex items-center flex-col py-4 border-neutral-200">
+    <section id="pricing" className=" border-y relative flex items-center flex-col py-4 border-neutral-200 scroll-mt-20">
       {/* Header */}
       <h2 className="lg:text-3xl pt-6 text-center text-2xl font-bold text-neutral-900 leading-8">
         Simple, transparent pricing <br />

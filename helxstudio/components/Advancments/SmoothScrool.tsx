@@ -3,6 +3,12 @@
 import { useEffect, type ReactNode } from "react";
 import Lenis from "lenis";
 
+declare global {
+  interface Window {
+    lenis?: Lenis;
+  }
+}
+
 interface SmoothScrollProps {
   children: ReactNode;
 }
@@ -14,6 +20,8 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
       smoothWheel: true,
     });
 
+    window.lenis = lenis;
+
     let rafId: number;
 
     const raf = (time: number) => {
@@ -23,9 +31,21 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
 
     rafId = requestAnimationFrame(raf);
 
+    // If initial URL has a hash, scroll to it smoothly
+    if (window.location.hash) {
+      const hash = window.location.hash;
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          lenis.scrollTo(el as HTMLElement, { offset: -80 });
+        }
+      }, 300);
+    }
+
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete window.lenis;
     };
   }, []);
 

@@ -31,7 +31,7 @@ const slides: CarouselSlide[] = [
 
 export default function FeatureProjects() {
   return (
-    <section className="mx-auto max-w-8xl px-6 py-16">
+    <section id="work" className="mx-auto max-w-8xl px-6 py-16 scroll-mt-20">
       <CustomerCarousel slides={slides} visibleCount={2} />
     </section>
   );

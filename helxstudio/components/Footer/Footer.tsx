@@ -9,6 +9,7 @@ import {
 } from "@phosphor-icons/react";
 import StudioLogo from "../extra/Studio-Logo";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NAVLINKS = [
   {
@@ -16,13 +17,17 @@ const NAVLINKS = [
     links: [
       {
         label: "Work",
-        url: "/work",
+        url: "/#work",
+      },
+      {
+        label: "Features",
+        url: "/#features",
       },
       {
         label: "Pricing",
-        url: "/pricing",
+        url: "/#pricing",
       },
-      { label: "FAQs", url: "/faqs" },
+      { label: "FAQs", url: "/#faqs" },
     ],
   },
   {
@@ -30,7 +35,7 @@ const NAVLINKS = [
     links: [
       {
         label: "+91 9079395654",
-        url: "",
+        url: "tel:+919079395654",
       },
       {
         label: "Book a call",
@@ -81,8 +86,32 @@ const SOCIAL_LINKS = [
 ];
 
 const Footer = () => {
+  const pathname = usePathname();
+
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (window.lenis) {
+      window.lenis.scrollTo(0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    if (url.startsWith("/#")) {
+      const hash = url.replace("/", "");
+      if (pathname === "/") {
+        e.preventDefault();
+        const targetEl = document.querySelector(hash);
+        if (targetEl) {
+          if (window.lenis) {
+            window.lenis.scrollTo(targetEl as HTMLElement, { offset: -80 });
+          } else {
+            targetEl.scrollIntoView({ behavior: "smooth" });
+          }
+          window.history.pushState(null, "", hash);
+        }
+      }
+    }
   };
 
   return (
@@ -94,7 +123,7 @@ const Footer = () => {
         </div>
         <button
           onClick={scrollToTop}
-          className="p-3 bg-neutral-50 rounded-lg hover:bg-neutral-800 transition-colors"
+          className="p-3 bg-neutral-50 rounded-lg hover:bg-neutral-800 transition-colors cursor-pointer"
           aria-label="Scroll to top"
         >
           <ArrowUp size={20} className="text-neutral-700" weight="bold" />
@@ -113,7 +142,8 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     href={link.url}
-                    className="text-base text-neutral-900 hover:underline-1  hover:text-neutral-600 transition-colors duration-200"
+                    onClick={(e) => handleLinkClick(e, link.url)}
+                    className="text-base text-neutral-900 hover:underline-1 hover:text-neutral-600 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>

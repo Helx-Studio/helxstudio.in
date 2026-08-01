@@ -3,19 +3,28 @@ import BookDemoButton from "./BookDemo";
 import { Menu, Close, ChevronRight } from "pixelarticons/react";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 
 const NavLinks = [
   {
-    link: "/work",
+    link: "/#work",
+    hash: "#work",
     nav: "Our Work",
   },
   {
-    link: "/whyus",
-    nav: "Why Us",
+    link: "/#features",
+    hash: "#features",
+    nav: "Features",
   },
   {
-    link: "/faqs",
+    link: "/#pricing",
+    hash: "#pricing",
+    nav: "Pricing",
+  },
+  {
+    link: "/#faqs",
+    hash: "#faqs",
     nav: "FAQs",
   },
 ];
@@ -24,9 +33,10 @@ interface NavModalProps {
   isOpen: boolean;
   onClose: () => void;
   links: typeof NavLinks;
+  onNavClick: (e: React.MouseEvent<HTMLAnchorElement>, hash: string, link: string) => void;
 }
 
-const NavModal = ({ isOpen, onClose, links }: NavModalProps) => {
+const NavModal = ({ isOpen, onClose, links, onNavClick }: NavModalProps) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -77,13 +87,16 @@ const NavModal = ({ isOpen, onClose, links }: NavModalProps) => {
                 <Link
                   key={link.link}
                   href={link.link}
-                  onClick={onClose}
-                  className="w-full px-6 py-3 border-b border-neutral-200 flex items-center justify-between hover:bg-neutral-50 active:bg-neutral-100   transition-colors group"
+                  onClick={(e) => {
+                    onNavClick(e, link.hash, link.link);
+                    onClose();
+                  }}
+                  className="w-full px-6 py-3 border-b border-neutral-200 flex items-center justify-between hover:bg-neutral-50 active:bg-neutral-100 transition-colors group"
                 >
                   <span className="text-xl font-medium text-neutral-900 group-hover:translate-x-1 transition-transform">
                     {link.nav}
                   </span>
-                  <ChevronRight className="w-5  h-5 text-neutral-400 group-hover:text-neutral-900 group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="w-5 h-5 text-neutral-400 group-hover:text-neutral-900 group-hover:translate-x-1 transition-all" />
                 </Link>
               ))}
             </div>
@@ -101,6 +114,29 @@ const NavModal = ({ isOpen, onClose, links }: NavModalProps) => {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    hash: string,
+    link: string
+  ) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      const targetEl = document.querySelector(hash);
+      if (targetEl) {
+        if (window.lenis) {
+          window.lenis.scrollTo(targetEl as HTMLElement, { offset: -80 });
+        } else {
+          targetEl.scrollIntoView({ behavior: "smooth" });
+        }
+        window.history.pushState(null, "", hash);
+      }
+    } else {
+      router.push(link);
+    }
+  };
 
   return (
     <>
@@ -133,6 +169,7 @@ const Navbar = () => {
               <Link
                 key={link.link}
                 href={link.link}
+                onClick={(e) => handleNavClick(e, link.hash, link.link)}
                 className="px-4 border-r border-neutral-300 py-3 hover:bg-neutral-100 transition-colors flex items-center"
               >
                 <span className="font-medium text-neutral-900">{link.nav}</span>
@@ -178,6 +215,7 @@ const Navbar = () => {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         links={NavLinks}
+        onNavClick={handleNavClick}
       />
     </>
   );
