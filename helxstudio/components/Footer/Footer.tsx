@@ -89,8 +89,9 @@ const Footer = () => {
   const pathname = usePathname();
 
   const scrollToTop = () => {
-    if (window.lenis) {
-      window.lenis.scrollTo(0);
+    const lenis = (window as unknown as { lenis?: { scrollTo: (target: number | HTMLElement, options?: { offset?: number }) => void } }).lenis;
+    if (lenis) {
+      lenis.scrollTo(0);
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -103,8 +104,9 @@ const Footer = () => {
         e.preventDefault();
         const targetEl = document.querySelector(hash);
         if (targetEl) {
-          if (window.lenis) {
-            window.lenis.scrollTo(targetEl as HTMLElement, { offset: -80 });
+          const lenis = (window as unknown as { lenis?: { scrollTo: (target: number | HTMLElement, options?: { offset?: number }) => void } }).lenis;
+          if (lenis) {
+            lenis.scrollTo(targetEl as HTMLElement, { offset: -80 });
           } else {
             targetEl.scrollIntoView({ behavior: "smooth" });
           }

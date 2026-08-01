@@ -27,7 +27,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Helx Studio",
-  description: "Desgin & Development Studio",
+  description: "Design & Development Studio",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
