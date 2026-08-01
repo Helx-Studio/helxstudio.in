@@ -126,8 +126,9 @@ const Navbar = () => {
       e.preventDefault();
       const targetEl = document.querySelector(hash);
       if (targetEl) {
-        if (window.lenis) {
-          window.lenis.scrollTo(targetEl as HTMLElement, { offset: -80 });
+        const lenis = window.lenis as { scrollTo: (target: HTMLElement, options?: { offset?: number }) => void } | undefined;
+        if (lenis) {
+          lenis.scrollTo(targetEl as HTMLElement, { offset: -80 });
         } else {
           targetEl.scrollIntoView({ behavior: "smooth" });
         }
