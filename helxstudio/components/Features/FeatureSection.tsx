@@ -24,14 +24,14 @@ const FeatureSection = () => {
         <h1 className="text-3xl tracking-tight font-semibold font-Mistral">
           What Working With Us Looks Like.
         </h1>
-        <p className="leading-4 ">
+        <p className="leading-4 mt-2 ">
           Premium quality, expert execution, half the cost. <br /> See why we're
           different.
         </p>
       </div>
 
       {/* BentoLayout */}
-      <div className="w-full max-w-7xl mx-auto mt-12 px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto mt-12 md:px-6  lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
           {/*
            */}
