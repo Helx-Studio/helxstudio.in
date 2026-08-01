@@ -3,12 +3,6 @@
 import { useEffect, type ReactNode } from "react";
 import Lenis from "lenis";
 
-declare global {
-  interface Window {
-    lenis?: Lenis;
-  }
-}
-
 interface SmoothScrollProps {
   children: ReactNode;
 }
@@ -20,7 +14,8 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
       smoothWheel: true,
     });
 
-    window.lenis = lenis;
+    const win = window as unknown as { lenis?: Lenis };
+    win.lenis = lenis;
 
     let rafId: number;
 
@@ -45,7 +40,7 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
-      delete window.lenis;
+      delete win.lenis;
     };
   }, []);
 
