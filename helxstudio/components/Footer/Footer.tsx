@@ -34,7 +34,7 @@ const NAVLINKS = [
       },
       {
         label: "Book a call",
-        url: "/book-call",
+        url: "/booking",
       },
       {
         label: "helxstudio@gmail.com",

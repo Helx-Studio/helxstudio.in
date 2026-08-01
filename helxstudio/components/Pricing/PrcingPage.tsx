@@ -172,36 +172,40 @@ function PricingSection() {
               {/* Button */}
               <div className="px-6">
                 {plan.featured ? (
-                  <motion.button
-                    initial="initial"
-                    whileHover="hovered"
-                    variants={{
-                      initial: { rotate: 0, scale: 1 },
-                      hovered: { scale: 1.01 },
-                    }}
-                    className={`w-full group flex items-center active:scale-96 bg-neutral-900 border border-neutral-900 hover:bg-neutral-800 text-white cursor-pointer relative justify-center gap-1.5 text-sm font-medium  py-2.5 transition-all
-                     `}
-                  >
-                    <StaggerText text="Let's Talk" />
-                  </motion.button>
+                  <Link href="/booking" className="block w-full">
+                    <motion.button
+                      initial="initial"
+                      whileHover="hovered"
+                      variants={{
+                        initial: { rotate: 0, scale: 1 },
+                        hovered: { scale: 1.01 },
+                      }}
+                      className={`w-full group flex items-center active:scale-96 bg-neutral-900 border border-neutral-900 hover:bg-neutral-800 text-white cursor-pointer relative justify-center gap-1.5 text-sm font-medium  py-2.5 transition-all
+                       `}
+                    >
+                      <StaggerText text="Let's Talk" />
+                    </motion.button>
+                  </Link>
                 ) : (
-                  <motion.button
-                    initial="initial"
-                    whileHover="hovered"
-                    variants={{
-                      initial: { rotate: 0, scale: 1 },
-                      hovered: { scale: 1.01 },
-                    }}
-                    className={`w-full group flex items-center active:scale-96 bg-white border border-neutral-200 hover:text-orange-600 hover:bg-orange-50 text-neutral-900 cursor-pointer relative justify-center gap-1.5 text-sm font-medium  py-2.5 transition-all
-                     `}
-                  >
-                    <div className="absolute w-2 h-2 group-hover:border-orange-400 border-t border-l transition-all duration-200 bezier(0.4, 0, 1, 1) group-hover:-left-1   group-hover:-top-1   border-neutral-400 top-0 left-0 " />
-                    <div className="absolute w-2 h-2 group-hover:border-orange-400 border-t border-r group-hover:-right-1    transition-all duration-200 bezier(0.4, 0, 1, 1)  group-hover:-top-1  border-neutral-400 top-0  right-0 " />
-                    <div className="absolute w-2 h-2 group-hover:border-orange-400  border-b  border-r border-neutral-400  transition-all duration-200 bezier(0.4, 0, 1, 1)  right-0 group-hover:-right-1 group-hover:-bottom-1 bottom-0" />
-                    <div className="absolute w-2 h-2 group-hover:border-orange-400  border-b border-l   border-neutral-400  transition-all duration-200 bezier(0.4, 0, 1, 1)  group-hover:-left-1 group-hover:-bottom-1  left-0  bottom-0" />
-                    {/* Book an Call */}
-                    <StaggerText text="Book an Call" />
-                  </motion.button>
+                  <Link href="/booking" className="block w-full">
+                    <motion.button
+                      initial="initial"
+                      whileHover="hovered"
+                      variants={{
+                        initial: { rotate: 0, scale: 1 },
+                        hovered: { scale: 1.01 },
+                      }}
+                      className={`w-full group flex items-center active:scale-96 bg-white border border-neutral-200 hover:text-orange-600 hover:bg-orange-50 text-neutral-900 cursor-pointer relative justify-center gap-1.5 text-sm font-medium  py-2.5 transition-all
+                       `}
+                    >
+                      <div className="absolute w-2 h-2 group-hover:border-orange-400 border-t border-l transition-all duration-200 bezier(0.4, 0, 1, 1) group-hover:-left-1   group-hover:-top-1   border-neutral-400 top-0 left-0 " />
+                      <div className="absolute w-2 h-2 group-hover:border-orange-400 border-t border-r group-hover:-right-1    transition-all duration-200 bezier(0.4, 0, 1, 1)  group-hover:-top-1  border-neutral-400 top-0  right-0 " />
+                      <div className="absolute w-2 h-2 group-hover:border-orange-400  border-b  border-r border-neutral-400  transition-all duration-200 bezier(0.4, 0, 1, 1)  right-0 group-hover:-right-1 group-hover:-bottom-1 bottom-0" />
+                      <div className="absolute w-2 h-2 group-hover:border-orange-400  border-b border-l   border-neutral-400  transition-all duration-200 bezier(0.4, 0, 1, 1)  group-hover:-left-1 group-hover:-bottom-1  left-0  bottom-0" />
+                      {/* Book an Call */}
+                      <StaggerText text="Book an Call" />
+                    </motion.button>
+                  </Link>
                 )}
               </div>
 

@@ -3,6 +3,7 @@ import { motion, MotionValue, useTransform } from "motion/react";
 import { useEffect, useState } from "react";
 import { ZodiacSagittarius } from "lucide-react";
 import { ArrowDown } from "pixelarticons/react";
+import Staggerbtn from "../Advancments/Staggerbtn";
 const RightSection = ({
   rightWidth,
   leftRight,
@@ -95,67 +96,10 @@ const RightSection = ({
           ))}
         </div>
         <div className="flex mb-16 items-center justify-end">
-          <motion.div
-            initial="initial"
-            whileHover="hovered"
-            variants={{
-              initial: { rotate: 0, scale: 1 },
-              hovered: { rotate: -2, scale: 1.07 },
-            }}
-            className="text-white flex items-center hover:shadow-2xl cursor-pointer gap-3 bg-black text-lg font-secondary font-medium pr-2 pl-4 py-2 rounded-lg"
-          >
-            <span className="pr-3">
-              <StaggerText text="Our Work" />
-            </span>
-            <span className="p-3 bg-linear-to-b from-[#E9EF23] to-[#B6FA15] text-black rounded-md">
-              <ZodiacSagittarius />
-            </span>
-          </motion.div>
+          <Staggerbtn />
         </div>
       </motion.div>
     </motion.div>
   );
 };
 export default RightSection;
-
-function StaggerText({ text }: { text: string }) {
-  return (
-    <span className="relative inline-flex overflow-hidden whitespace-nowrap">
-      {text.split("").map((char, i) => (
-        <span key={i} className="relative inline-block overflow-hidden">
-          {/* First line (slides up and out) */}
-          <motion.span
-            variants={{
-              initial: { y: 0 },
-              hovered: { y: "-100%" },
-            }}
-            transition={{
-              duration: 0.3,
-              ease: [0.6, 0.01, -0.05, 0.95],
-              delay: i * 0.02,
-            }}
-            className="inline-block"
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-
-          {/* Second line (slides up and in) */}
-          <motion.span
-            variants={{
-              initial: { y: "100%" },
-              hovered: { y: 0 },
-            }}
-            transition={{
-              duration: 0.3,
-              ease: [0.6, 0.01, -0.05, 0.95],
-              delay: i * 0.02,
-            }}
-            className="absolute left-0 top-0 inline-block"
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-        </span>
-      ))}
-    </span>
-  );
-}

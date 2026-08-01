@@ -2,17 +2,19 @@
 import React from "react";
 import { motion } from "motion/react";
 import { ChevronRight } from "pixelarticons/react";
+import Link from "next/link";
 
 interface BookDemoButtonProps {
   className?: string;
 }
 const BookDemoButton = ({ className }: BookDemoButtonProps) => {
   return (
-    <motion.button
-      initial="initial"
-      whileHover="hover"
-      className={` cursor-pointer  shadow-[inset_1px_1px_1px_-8px_#FFF7F7]  font-semibold py-3 flex items-center px-5 overflow-hidden ${className || "bg-neutral-950 hover:bg-neutral-900 text-white"}`}
-    >
+    <Link href="/booking">
+      <motion.button
+        initial="initial"
+        whileHover="hover"
+        className={` cursor-pointer  shadow-[inset_1px_1px_1px_-8px_#FFF7F7]  font-semibold py-3 flex items-center px-5 overflow-hidden ${className || "bg-neutral-950 hover:bg-neutral-900 text-white"}`}
+      >
       <motion.span
         variants={{
           initial: { width: 20, opacity: 1, x: 0, marginRight: 2 },
@@ -36,7 +38,8 @@ const BookDemoButton = ({ className }: BookDemoButtonProps) => {
       >
         <ChevronRight />
       </motion.span>
-    </motion.button>
+      </motion.button>
+    </Link>
   );
 };
 
