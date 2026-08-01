@@ -16,7 +16,7 @@ const FeatureSection = () => {
       <div className="h-3 w-3 bg-transparent border-neutral-600 absolute top-0 border-t border-r right-0" />
 
       <div className="absolute uppercase font-mono w-fit bg-white -top-3 px-2  left-12">
-        <p>BENEFITS</p>
+        <p>FEATURES</p>
       </div>
       {/* Upper Text */}
       <div className="pt-10 flex flex-col ">

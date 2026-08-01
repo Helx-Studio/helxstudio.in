@@ -3,12 +3,15 @@ import React from "react";
 import { motion } from "motion/react";
 import { ChevronRight } from "pixelarticons/react";
 
-const BookDemoButton = React.forwardRef<HTMLButtonElement>(() => {
+interface BookDemoButtonProps {
+  className?: string;
+}
+const BookDemoButton = ({ className }: BookDemoButtonProps) => {
   return (
     <motion.button
       initial="initial"
       whileHover="hover"
-      className="bg-neutral-950 cursor-pointer hover:bg-neutral-900 shadow-[inset_1px_1px_1px_-8px_#FFF7F7] text-white font-semibold py-3 flex items-center px-5 overflow-hidden"
+      className={` cursor-pointer  shadow-[inset_1px_1px_1px_-8px_#FFF7F7]  font-semibold py-3 flex items-center px-5 overflow-hidden ${className || "bg-neutral-950 hover:bg-neutral-900 text-white"}`}
     >
       <motion.span
         variants={{
@@ -35,7 +38,7 @@ const BookDemoButton = React.forwardRef<HTMLButtonElement>(() => {
       </motion.span>
     </motion.button>
   );
-});
+};
 
 BookDemoButton.displayName = "BookCallButton";
 

@@ -53,9 +53,15 @@ const LeftSection = ({
         </motion.div>
       </div>
       <div className="w-full h-105 relative bg-transparent">
-        <div className="w-full inset-0  absolute h-full">
-          {" "}
-          <video src="./motion.mp4" loop className="w-full object-cover" />
+        <div className="w-full inset-0 absolute h-full">
+          <video
+            src="/motion.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
     </motion.div>
