@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
-import { ChevronLeft2, ChevronRight2, ArrowRight } from "pixelarticons/react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { ChevronLeft2, ChevronRight2 } from "pixelarticons/react";
+
 export type CarouselSlide = {
   id: string;
   logo?: React.ReactNode; // pass an <img> or inline svg/text logo
@@ -54,28 +55,29 @@ function CarouselCard({
       onClick={onCardClick}
       onDragStart={(e) => e.preventDefault()}
       draggable={false}
-      className="group relative shrink-0 px-2 select-none"
+      className="group relative shrink-0 px-2 select-none min-w-[280px] xs:min-w-[340px] sm:min-w-[380px] md:min-w-[420px]"
       style={{ width: `${100 / visibleCount}%` }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative h-[420px] w-full overflow-hidden rounded-2xl bg-neutral-900 pointer-events-none">
+      <div className="relative aspect-[16/10] sm:aspect-auto sm:h-[380px] md:h-[420px] w-full overflow-hidden rounded-2xl bg-neutral-900 pointer-events-none border border-neutral-200/60 shadow-sm">
         {slide.video ? (
           <video
             ref={videoRef}
             src={`${slide.video}#t=0.1`}
+            autoPlay
             muted
             loop
             playsInline
             preload="auto"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <img
             src={slide.image}
             alt=""
             draggable={false}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
         )}
       </div>
@@ -87,15 +89,30 @@ export default function CustomerCarousel({
   slides,
   visibleCount = 2,
 }: CustomerCarouselProps) {
+  const [effectiveVisibleCount, setEffectiveVisibleCount] =
+    useState<number>(visibleCount);
   const [index, setIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const dragStartXRef = useRef(0);
-  const hasDraggedRef = useRef(false);
+  const hasDraggedRef: { current: boolean } = { current: false };
 
-  const maxIndex = Math.max(0, slides.length - visibleCount);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setEffectiveVisibleCount(1);
+      } else {
+        setEffectiveVisibleCount(visibleCount);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [visibleCount]);
+
+  const maxIndex = Math.max(0, slides.length - effectiveVisibleCount);
 
   const goTo = useCallback(
     (next: number) => {
@@ -144,7 +161,7 @@ export default function CustomerCarousel({
 
     if (hasDraggedRef.current) {
       const trackWidth = trackRef.current?.clientWidth || 1;
-      const slideWidthInPixels = trackWidth / visibleCount;
+      const slideWidthInPixels = trackWidth / effectiveVisibleCount;
       const indexOffset = Math.round(-diffX / slideWidthInPixels);
 
       if (indexOffset !== 0) {
@@ -163,10 +180,10 @@ export default function CustomerCarousel({
 
   const trackWidth = trackRef.current?.clientWidth || 1;
   const dragPercent = (dragOffset / trackWidth) * 100;
-  const translatePercent = -index * (100 / visibleCount) + dragPercent;
+  const translatePercent = -index * (100 / effectiveVisibleCount) + dragPercent;
 
   return (
-    <div className="w-full">
+    <div className="w-full overflow-hidden">
       {/* Track Container */}
       <div
         className="overflow-hidden rounded-2xl select-none touch-pan-y cursor-grab active:cursor-grabbing"
@@ -177,7 +194,7 @@ export default function CustomerCarousel({
       >
         <div
           ref={trackRef}
-          className="flex transition-transform ease-out"
+          className="flex transition-transform w-full ease-out"
           style={{
             transform: `translateX(${translatePercent}%)`,
             transitionDuration: isDragging ? "0ms" : "500ms",
@@ -187,7 +204,7 @@ export default function CustomerCarousel({
             <CarouselCard
               key={slide.id}
               slide={slide}
-              visibleCount={visibleCount}
+              visibleCount={effectiveVisibleCount}
               onCardClick={handleCardClick}
             />
           ))}
@@ -195,18 +212,20 @@ export default function CustomerCarousel({
       </div>
 
       {/* Controls row */}
-      <div className="mt-6 flex  items-center justify-between">
+      <div className="mt-6 flex items-center justify-between">
         {/* Pagination dots */}
-        <div className="flex bg-gray-100 px-4 py-3 rounded-lg  items-center gap-2">
-          {slides.map((_, i) => (
+        <div className="flex bg-neutral-100 px-4 py-3 rounded-lg items-center gap-2">
+          {Array.from({
+            length: slides.length - effectiveVisibleCount + 1,
+          }).map((_, i) => (
             <button
               key={i}
               aria-label={`Go to slide ${i + 1}`}
-              onClick={() => goTo(Math.min(i, maxIndex))}
+              onClick={() => goTo(i)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 i === index
                   ? "w-6 bg-neutral-900"
-                  : "w-2 bg-neutral-500 hover:bg-neutral-400"
+                  : "w-2 bg-neutral-400 hover:bg-neutral-500"
               }`}
             />
           ))}
@@ -224,7 +243,7 @@ export default function CustomerCarousel({
           </button>
           <button
             onClick={handleNext}
-            disabled={index === maxIndex}
+            disabled={index >= maxIndex}
             aria-label="Next slide"
             className="flex h-10 w-10 outline-2 outline-neutral-200 items-center justify-center rounded-md border border-neutral-300 text-neutral-700 transition-colors hover:bg-neutral-100 disabled:cursor-not-allowed disabled:opacity-40"
           >
