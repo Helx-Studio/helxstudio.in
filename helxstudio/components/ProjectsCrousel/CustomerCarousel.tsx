@@ -26,7 +26,7 @@ function CarouselCard({
 }: {
   slide: CarouselSlide;
   visibleCount: number;
-  onCardClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  onCardClick: (e: React.MouseEvent<HTMLElement>) => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -170,7 +170,7 @@ export default function CustomerCarousel({
     }
   };
 
-  const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleCardClick = (e: React.MouseEvent<HTMLElement>) => {
     if (hasDraggedRef.current) {
       e.preventDefault();
     }

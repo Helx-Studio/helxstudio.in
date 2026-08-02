@@ -5,6 +5,7 @@ import vind from "@/public/Projects/arvind-sahakari-bank.png";
 import second from "@/public/Projects/fyypedvideo.png";
 import thrid from "@/public/Projects/mitun.png";
 import { ImagesBadge } from "../Advancments/image-badge";
+import SymbolsCanvas from "./symbols/SymbolsCanvas";
 const LeftSection = ({
   leftWidth,
   leftHeadingX,
@@ -53,15 +54,8 @@ const LeftSection = ({
         </motion.div>
       </div>
       <div className="w-full h-105 relative bg-transparent">
-        <div className="w-full inset-0 absolute h-full">
-          <video
-            src="/motion.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          />
+        <div className="w-full inset-0 absolute h-full overflow-hidden">
+          <SymbolsCanvas videoSrc="/motion.mp4" className="w-full h-full block" />
         </div>
       </div>
     </motion.div>
