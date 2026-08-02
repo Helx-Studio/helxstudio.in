@@ -6,22 +6,18 @@ const slides: CarouselSlide[] = [
   {
     id: "arvind-sahakari-bank",
     image: "/Projects/arvind-sahakari-bank.png",
-    video: "/Projects/arvind-sahakari-bank.mp4",
   },
   {
     id: "fyyped",
     image: "/Projects/fyypedvideo.png",
-    video: "/Projects/fyypedvideo.mp4",
   },
   {
     id: "mitun",
     image: "/Projects/mitun.png",
-    video: "/Projects/mitun.mp4",
   },
   {
     id: "softech",
     image: "/Projects/softech.png",
-    video: "/Projects/softech.mp4",
   },
 ];
 

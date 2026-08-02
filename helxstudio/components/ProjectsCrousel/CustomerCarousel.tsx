@@ -9,7 +9,6 @@ export type CarouselSlide = {
   eyebrow?: string; // e.g. "FINANCIAL SERVICES"
   title?: string;
   image: string; // background image url
-  video?: string; // hover video url
   theme?: "dark" | "light"; // controls eyebrow/text contrast if needed
 };
 
@@ -28,26 +27,6 @@ function CarouselCard({
   visibleCount: number;
   onCardClick: (e: React.MouseEvent<HTMLElement>) => void;
 }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handleMouseEnter = () => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((err) => {
-        if (err.name !== "AbortError") {
-          console.warn("Video play interrupted:", err);
-        }
-      });
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      // Seek back to the thumbnail frame
-      videoRef.current.currentTime = 0.1;
-    }
-  };
-
   return (
     <div
       onClick={onCardClick}
@@ -58,26 +37,13 @@ function CarouselCard({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative aspect-[16/10] sm:aspect-auto sm:h-[380px] md:h-[420px] w-full overflow-hidden rounded-2xl bg-neutral-900 pointer-events-none border border-neutral-200/60 shadow-sm">
-        {slide.video ? (
-          <video
-            ref={videoRef}
-            src={`${slide.video}#t=0.1`}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-          />
-        ) : (
-          <img
-            src={slide.image}
-            alt=""
-            draggable={false}
-            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-          />
-        )}
+      <div className="relative aspect-16/10 sm:aspect-auto sm:h-[380px] md:h-[420px] w-full overflow-hidden rounded-2xl bg-neutral-900 pointer-events-none border border-neutral-200/60 shadow-sm">
+        <img
+          src={slide.image}
+          alt=""
+          draggable={false}
+          className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        />
       </div>
     </div>
   );
