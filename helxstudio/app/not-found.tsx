@@ -1,0 +1,65 @@
+"use client";
+
+import Navbar from "@/components/Advancments/Navbar";
+import Footer from "@/components/Footer/Footer";
+import Link from "next/link";
+import { motion } from "motion/react";
+import {
+  ArrowLeft,
+  House,
+  Calendar,
+  Sparkle,
+  MagnifyingGlass,
+} from "@phosphor-icons/react";
+
+export default function NotFound() {
+  const quickLinks = [
+    {
+      label: "Featured Work",
+      href: "/#work",
+      desc: "Check out our latest studio projects",
+    },
+    {
+      label: "Capabilities & Features",
+      href: "/#features",
+      desc: "Explore what we design and build",
+    },
+    {
+      label: "Pricing & Plans",
+      href: "/#pricing",
+      desc: "Transparent plans tailored to scale",
+    },
+    {
+      label: "Book a Strategy Call",
+      href: "/booking",
+      desc: "Schedule a 1-on-1 consultation",
+    },
+  ];
+
+  return (
+    <div className="flex min-h-screen items-center justify-center font-sans bg-white selection:bg-blue-100 selection:text-blue-600">
+      <main className="w-full relative min-h-screen flex flex-col justify-between max-w-[85rem] border-x border-neutral-200">
+        <div className="flex-1 flex flex-col items-center justify-center px-6 py-16 sm:py-24 text-center">
+          {/* Big Stylish 404 Number */}
+          <div className="relative flex flex-col gap-2 select-none">
+            <p className="text-md  font-extrabold text-neutral-700 tracking-tighter leading-none">
+              4<span className="text-neutral-300">0</span>4
+            </p>
+            <h1 className="text-3xl text-neutral-900 font-semibold tracking-tighter">
+              Page went out for snacks.
+              <br />
+              We're not mad. We just <br /> hope it brings back chips.{" "}
+            </h1>
+
+            <Link
+              href="/"
+              className="px-4 py-1.5 border w-fit mx-auto border-neutral-200 mt-4 rounded-md text-sm font-medium text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 transition-colors duration-200"
+            >
+              Back to Home
+            </Link>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}

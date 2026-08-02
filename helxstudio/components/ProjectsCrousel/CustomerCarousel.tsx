@@ -34,8 +34,6 @@ function CarouselCard({
       draggable={false}
       className="group relative shrink-0 px-2 select-none min-w-[280px] xs:min-w-[340px] sm:min-w-[380px] md:min-w-[420px]"
       style={{ width: `${100 / visibleCount}%` }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <div className="relative aspect-16/10 sm:aspect-auto sm:h-[380px] md:h-[420px] w-full overflow-hidden rounded-2xl bg-neutral-900 pointer-events-none border border-neutral-200/60 shadow-sm">
         <img

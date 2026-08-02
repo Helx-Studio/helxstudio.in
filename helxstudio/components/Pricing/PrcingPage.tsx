@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import { useState } from "react";
-import Link from 'next/link'
+import Link from "next/link";
 import {
   Globe,
   DeviceMobile,
@@ -77,7 +77,10 @@ function PricingSection() {
   ];
 
   return (
-    <section id="pricing" className=" border-y relative flex items-center flex-col py-4 border-neutral-200 scroll-mt-20">
+    <section
+      id="pricing"
+      className=" border-y relative flex items-center flex-col py-4 border-neutral-200 scroll-mt-20"
+    >
       {/* Header */}
       <h2 className="lg:text-3xl pt-6 text-center text-2xl font-bold text-neutral-900 leading-8">
         Simple, transparent pricing <br />
@@ -255,8 +258,10 @@ function PricingSection() {
           <p className="text-neutral-700 font-semibold ">
             Let's have an quick chat
           </p>{" "}
-          <Link
-          href={"/https://t.me/helxstudio"}
+          <a
+            href="https://t.me/helxstudio"
+            target="_blank"
+            rel="noopener noreferrer"
             onMouseLeave={() => setOpen(false)}
             onMouseEnter={() => setOpen(true)}
             className="flex items-center cursor-pointer gap-1 w-fit group transition-all duration-200 px-2 py-2 bg-blue-50 rounded-md "
@@ -267,7 +272,7 @@ function PricingSection() {
                 Send a meassage
               </span>
             </span>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

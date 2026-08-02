@@ -10,7 +10,7 @@ import {
 import StudioLogo from "../extra/Studio-Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import HELX3D from "@/components/Advancments/3DLOGO";
 const NAVLINKS = [
   {
     title: "NAVIGATION",
@@ -89,7 +89,16 @@ const Footer = () => {
   const pathname = usePathname();
 
   const scrollToTop = () => {
-    const lenis = (window as unknown as { lenis?: { scrollTo: (target: number | HTMLElement, options?: { offset?: number }) => void } }).lenis;
+    const lenis = (
+      window as unknown as {
+        lenis?: {
+          scrollTo: (
+            target: number | HTMLElement,
+            options?: { offset?: number },
+          ) => void;
+        };
+      }
+    ).lenis;
     if (lenis) {
       lenis.scrollTo(0);
     } else {
@@ -97,14 +106,26 @@ const Footer = () => {
     }
   };
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    url: string,
+  ) => {
     if (url.startsWith("/#")) {
       const hash = url.replace("/", "");
       if (pathname === "/") {
         e.preventDefault();
         const targetEl = document.querySelector(hash);
         if (targetEl) {
-          const lenis = (window as unknown as { lenis?: { scrollTo: (target: number | HTMLElement, options?: { offset?: number }) => void } }).lenis;
+          const lenis = (
+            window as unknown as {
+              lenis?: {
+                scrollTo: (
+                  target: number | HTMLElement,
+                  options?: { offset?: number },
+                ) => void;
+              };
+            }
+          ).lenis;
           if (lenis) {
             lenis.scrollTo(targetEl as HTMLElement, { offset: -80 });
           } else {
@@ -156,14 +177,19 @@ const Footer = () => {
         ))}
       </div>
 
+      <HELX3D
+        width={251}
+        height={200}
+        className="absolute z-12 -bottom-12 left-1/2 -translate-x-1/2 "
+      />
       {/* Copyright and Social Links */}
-      <div className="border-t border-neutral-200 px-6 sm:px-8 md:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className=" z-0 border-neutral-200 px-6 sm:px-8 md:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
         <p className="text-sm text-neutral-600">
           © 2026 Helx Studio • All rights reserved.
         </p>
 
         {/* Social Icons */}
-        <div className="flex items-center gap-4">
+        <div className="flex z-0 items-center gap-4">
           {SOCIAL_LINKS.map((social) => {
             const IconComponent = social.icon;
             return (
@@ -171,7 +197,6 @@ const Footer = () => {
                 key={social.label}
                 href={social.url}
                 target="_blank"
-                rel="noopener noreferrer"
                 className="p-2 text-neutral-700 hover:text-neutral-950 hover:bg-neutral-100 rounded-lg transition-colors duration-200"
                 aria-label={social.label}
               >

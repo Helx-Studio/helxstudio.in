@@ -5,19 +5,15 @@ import CustomerCarousel, {
 const slides: CarouselSlide[] = [
   {
     id: "arvind-sahakari-bank",
-    image: "/Projects/arvind-sahakari-bank.png",
+    image: "/Projects/og-1.png",
   },
   {
     id: "fyyped",
-    image: "/Projects/fyypedvideo.png",
+    image: "/Projects/Scene 13.png",
   },
   {
     id: "mitun",
-    image: "/Projects/mitun.png",
-  },
-  {
-    id: "softech",
-    image: "/Projects/softech.png",
+    image: "/Projects/Image0008.png",
   },
 ];
 

@@ -10,8 +10,8 @@ interface SymbolsCanvasProps {
 }
 
 const DEFAULT_PARAMS: SymbolsParams = {
-  cell: 20,
-  bandColors: ["#09090b", "#18181b", "#3f3f46", "#a1a1aa"],
+  cell: 3,
+  bandColors: ["#143952", "#f53df2", "#aaa8ff", "#d8d8d8"],
   bandStops: [0.0, 0.25, 0.5, 0.75, 1.0],
   bandGlyphs: [3, 7, 10, 18], // square, plus, diamond, spark
   zoom: 1,

@@ -54,8 +54,11 @@ const LeftSection = ({
         </motion.div>
       </div>
       <div className="w-full h-105 relative bg-transparent">
-        <div className="w-full inset-0 absolute h-full overflow-hidden">
-          <SymbolsCanvas videoSrc="/motion.mp4" className="w-full h-full block" />
+        <div className="w-full inset-0 absolute border border-neutral-200 h-full overflow-hidden">
+          <SymbolsCanvas
+            videoSrc="/motion.mp4"
+            className="w-full h-full block"
+          />
         </div>
       </div>
     </motion.div>
