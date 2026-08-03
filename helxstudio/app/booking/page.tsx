@@ -6,7 +6,16 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Book a Call | Helx Studio",
-  description: "Schedule a call with Helx Studio to discuss your project, timeline, and next steps to collaborate.",
+  description:
+    "Schedule a call with Helx Studio to discuss your project, timeline, and next steps to collaborate.",
+  twitter: {
+    card: "summary_large_image",
+    title: "Helx Studio | Book an 30min Call",
+    description:
+      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform.",
+    images: ["./og-image.png"],
+    creator: "@hiteshxdev",
+  },
 };
 
 export default function BookingPage() {
@@ -19,16 +28,30 @@ export default function BookingPage() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Soft radial glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-blue-50/40 via-purple-50/20 to-transparent blur-3xl opacity-70" />
-        
+
         {/* Decorative background beam stripes matching reference */}
         <svg
           className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] opacity-[0.07] stroke-neutral-900"
           fill="none"
           viewBox="0 0 1200 600"
         >
-          <line x1="200" y1="0" x2="400" y2="600" strokeWidth="1.5" strokeDasharray="6 6" />
+          <line
+            x1="200"
+            y1="0"
+            x2="400"
+            y2="600"
+            strokeWidth="1.5"
+            strokeDasharray="6 6"
+          />
           <line x1="400" y1="0" x2="600" y2="600" strokeWidth="1.5" />
-          <line x1="800" y1="0" x2="600" y2="600" strokeWidth="1.5" strokeDasharray="6 6" />
+          <line
+            x1="800"
+            y1="0"
+            x2="600"
+            y2="600"
+            strokeWidth="1.5"
+            strokeDasharray="6 6"
+          />
           <line x1="1000" y1="0" x2="800" y2="600" strokeWidth="1.5" />
         </svg>
       </div>

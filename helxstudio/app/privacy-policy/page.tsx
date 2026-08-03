@@ -1,7 +1,20 @@
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Advancments/Navbar";
 import Link from "next/link";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Privacy Policy | Helx Studio",
+  description:
+    "How we protect your privacy, what data we collect, and your rights over your information.",
+  twitter: {
+    card: "summary_large_image",
+    title: "Helx Studio | Privacy Policy",
+    description:
+      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform.",
+    images: ["./og-image.png"],
+    creator: "@hiteshxdev",
+  },
+};
 const PrivacyPolicyPage = () => {
   return (
     <div className="min-h-screen w-full bg-white flex flex-col justify-between">

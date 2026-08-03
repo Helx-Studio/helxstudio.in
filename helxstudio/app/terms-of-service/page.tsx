@@ -1,7 +1,20 @@
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Advancments/Navbar";
 import Link from "next/link";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Terms of Service | Helx Studio",
+  description:
+    "Terms and Conditions for using Helx Studio's website and services, including project scope, payments, revisions, and intellectual property rights.",
+  twitter: {
+    card: "summary_large_image",
+    title: "Helx Studio | Term of Service ",
+    description:
+      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform.",
+    images: ["./og-image.png"],
+    creator: "@hiteshxdev",
+  },
+};
 const TermsOfServicePage = () => {
   return (
     <div className="min-h-screen w-full bg-white flex flex-col justify-between">

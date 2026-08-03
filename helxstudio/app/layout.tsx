@@ -7,29 +7,59 @@ const Mistral = localFont({
   variable: "--font-Main",
   src: "../components/font/ALTMistral-Medium.woff2",
 });
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
-  display: "swap",
-  variable: "--font-serif",
-});
+
 const inter = Inter({
   variable: "--font-secondary",
 });
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "Helx Studio",
-  description: "Design & Development Studio",
+  title: "Helx Studio | Web Design & Development for Startups",
+  description:
+    "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform.",
   icons: {
     icon: "/favicon.ico",
+  },
+  keywords: [
+    "web design",
+    "web development",
+    "startup websites",
+    "creative agency",
+  ],
+  openGraph: {
+    title: "Helx Studio | Web Design & Development for Startups",
+    description:
+      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform.",
+    url: "https://helxstudio.in",
+    siteName: "Helx Studio",
+    images: [
+      {
+        url: "./og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Helx Studio | Web Design & Development for Startups",
+    description:
+      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform.",
+    images: ["./og-image.png"],
+    creator: "@hiteshxdev",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -41,7 +71,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${Mistral.variable} ${instrumentSerif.className} ${inter.variable} h-full antialiased`}
+      className={`  ${Mistral.variable}  ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SmoothScroll>{children}</SmoothScroll>

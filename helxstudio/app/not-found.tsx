@@ -11,6 +11,7 @@ import {
   Sparkle,
   MagnifyingGlass,
 } from "@phosphor-icons/react";
+import { ChevronLeft } from "pixelarticons/react";
 
 export default function NotFound() {
   const quickLinks = [
@@ -43,9 +44,9 @@ export default function NotFound() {
           {/* Big Stylish 404 Number */}
           <div className="relative flex flex-col gap-2 select-none">
             <p className="text-md  font-extrabold text-neutral-700 tracking-tighter leading-none">
-              4<span className="text-neutral-300">0</span>4
+              4<span className="text-orange-500">0</span>4
             </p>
-            <h1 className="text-3xl text-neutral-900 font-semibold tracking-tighter">
+            <h1 className="lg:text-3xl text-2xl text-neutral-900 font-semibold tracking-tighter">
               Page went out for snacks.
               <br />
               We're not mad. We just <br /> hope it brings back chips.{" "}
@@ -53,9 +54,9 @@ export default function NotFound() {
 
             <Link
               href="/"
-              className="px-4 py-1.5 border w-fit mx-auto border-neutral-200 mt-4 rounded-md text-sm font-medium text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 transition-colors duration-200"
+              className="p-2 border w-fit mx-auto border-neutral-200 mt-4 rounded-md text-sm font-medium text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 transition-colors duration-200"
             >
-              Back to Home
+              <ChevronLeft />
             </Link>
           </div>
         </div>
