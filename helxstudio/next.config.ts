@@ -6,9 +6,19 @@ const nextConfig: NextConfig = {
     cpus: 1,
     optimizePackageImports: ["lucide-react", "pixelarticons"],
   },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Content-Signal",
+            value: "ai-train=no, search=yes, ai-input=no",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
-
-
-
