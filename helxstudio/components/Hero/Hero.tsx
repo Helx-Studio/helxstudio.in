@@ -75,11 +75,11 @@ const Hero = () => {
           Tell your Idea. <br />
           Wake up launched.
         </h1>
-        <p className="max-w-md text-sm text-neutral-700 mb-4">
+        <h4 className="max-w-md text-sm text-neutral-700 mb-4">
           {" "}
           We design, develop, and launch <br /> high-performance websites
           crafted to <br /> engage users and accelerate growth.
-        </p>
+        </h4>
         <Staggerbtn
           className=" text-md pr-2 pl-2 py-2"
           classChildren="p-2 rounded-lg"

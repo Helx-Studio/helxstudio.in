@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Helx Studio | Web Design & Development for Startups",
     description:
-      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform.",
+      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform | helxstudio@gmail.com",
     url: "https://helxstudio.in",
     siteName: "Helx Studio",
     images: [
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Helx Studio | Web Design & Development for Startups",
     description:
-      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform.",
+      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform | helxstudio@gmail.com",
     images: ["./og-image.png"],
     creator: "@hiteshxdev",
   },

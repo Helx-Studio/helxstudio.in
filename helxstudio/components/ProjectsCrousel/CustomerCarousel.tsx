@@ -38,7 +38,7 @@ function CarouselCard({
       <div className="relative aspect-16/10 sm:aspect-auto sm:h-[380px] md:h-[420px] w-full overflow-hidden rounded-2xl bg-neutral-900 pointer-events-none border border-neutral-200/60 shadow-sm">
         <img
           src={slide.image}
-          alt=""
+          alt={slide.id}
           draggable={false}
           className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />

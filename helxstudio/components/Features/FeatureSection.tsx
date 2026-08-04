@@ -11,7 +11,10 @@ import NotificationStackCard from "./FullCycleDevlopment";
 import PostLaunchAnimation from "./PostLaunchAnimaton";
 const FeatureSection = () => {
   return (
-    <section id="features" className=" px-8 mb-3 border-t border-neutral-200 relative scroll-mt-20">
+    <section
+      id="features"
+      className=" px-8 mb-3 border-t border-neutral-200 relative scroll-mt-20"
+    >
       <div id="whyus" className="absolute -top-20" />
       <div className="h-3 w-3 bg-transparent border-neutral-600 absolute top-0 border-t border-l left-0" />
       <div className="h-3 w-3 bg-transparent border-neutral-600 absolute top-0 border-t border-r right-0" />
@@ -22,9 +25,9 @@ const FeatureSection = () => {
       {/* Upper Text */}
       <div className="pt-10 flex flex-col ">
         {" "}
-        <h1 className="text-3xl tracking-tight font-semibold font-Mistral">
+        <h2 className="text-3xl tracking-tight font-semibold font-Mistral">
           What Working With Us Looks Like.
-        </h1>
+        </h2>
         <p className="leading-4 mt-2 ">
           Premium quality, expert execution, half the cost. <br /> See why we're
           different.

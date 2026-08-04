@@ -46,11 +46,11 @@ export default function NotFound() {
             <p className="text-md  font-extrabold text-neutral-700 tracking-tighter leading-none">
               4<span className="text-orange-500">0</span>4
             </p>
-            <h1 className="lg:text-3xl text-2xl text-neutral-900 font-semibold tracking-tighter">
+            <h2 className="lg:text-3xl text-2xl text-neutral-900 font-semibold tracking-tighter">
               Page went out for snacks.
               <br />
               We're not mad. We just <br /> hope it brings back chips.{" "}
-            </h1>
+            </h2>
 
             <Link
               href="/"

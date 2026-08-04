@@ -7,12 +7,12 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Book a Call | Helx Studio",
   description:
-    "Schedule a call with Helx Studio to discuss your project, timeline, and next steps to collaborate.",
+    "Schedule a call with Helx Studio to discuss your project, timeline, and next steps to collaborate | helxstudio@gmail.com",
   twitter: {
     card: "summary_large_image",
     title: "Helx Studio | Book an 30min Call",
     description:
-      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform.",
+      "Helx Studio designs and builds fast, high-converting websites for growing startups. From idea to launch — beautifully built, engineered to perform | helxstudio@gmail.com",
     images: ["./og-image.png"],
     creator: "@hiteshxdev",
   },
@@ -69,10 +69,10 @@ export default function BookingPage() {
 
         {/* Heading & Subtitle */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 mb-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 mb-3">
             Book a 15-min call
-          </h1>
-          <p className="text-neutral-600 text-sm sm:text-base leading-relaxed">
+          </h2>
+          <h4 className="text-neutral-600 text-sm sm:text-base leading-relaxed">
             Please select the time that fits you or just{" "}
             <br className="hidden sm:inline" />
             Email us at{" "}
@@ -82,7 +82,7 @@ export default function BookingPage() {
             >
               helxstudio@gmail.com
             </a>
-          </p>
+          </h4>
         </div>
 
         {/* Cal.com Embed Widget */}
