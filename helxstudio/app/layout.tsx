@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/Advancments/SmoothScrool";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
+
 const Mistral = localFont({
   variable: "--font-Main",
   src: "../components/font/ALTMistral-Medium.woff2",
@@ -61,6 +63,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  alternates: {
+    canonical: "https://helxstudio.in",
+  },
 };
 
 export default function RootLayout({
@@ -75,6 +80,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <SmoothScroll>{children}</SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );

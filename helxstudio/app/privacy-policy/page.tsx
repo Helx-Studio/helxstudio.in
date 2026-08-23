@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     images: ["./og-image.png"],
     creator: "@hiteshxdev",
   },
+  alternates: {
+    canonical: "https://helxstudio.in/privacy-policy",
+  },
 };
 const PrivacyPolicyPage = () => {
   return (
