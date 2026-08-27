@@ -180,10 +180,10 @@ const Footer = () => {
       <HELX3D
         width={251}
         height={200}
-        className="absolute z-12 -bottom-12 left-1/2 -translate-x-1/2 "
+        className="absolute z-0 -bottom-12 left-1/2 -translate-x-1/2 "
       />
       {/* Copyright and Social Links */}
-      <div className=" z-0 border-neutral-200 px-6 sm:px-8 md:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className=" z-10 border-neutral-200 px-6 sm:px-8 md:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
         <p className="text-sm text-neutral-600">
           © 2026 Helx Studio • All rights reserved.
         </p>
